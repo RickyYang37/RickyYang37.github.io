@@ -1,2 +1,2 @@
 # RickyYang37.github.io
-BuildSchool 前端作品
+BuildSchool 前端作業
