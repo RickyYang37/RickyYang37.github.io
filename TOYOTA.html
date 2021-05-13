@@ -98,7 +98,7 @@
             background-color: black;
             /* text-transform: capitalize; */
             line-height: 20px;
-            font-size: 20px;
+            font-size: 16px;
             letter-spacing: 3px;
             padding: 0px 10px 35px 20px;
         }
@@ -122,7 +122,7 @@
         }
         .item1 h3{
             color: white;
-            font-size: 30px;
+            font-size: 25px;
             background-color: black;
             padding: 40px 0px 15px 20px;
             /* line-height: 40px; */
@@ -174,7 +174,7 @@
             writing-mode:horizontal-tb;
             /* margin-left: 10px; */
             /* padding: 1px 10px; */
-            padding-left: 10px ;
+            padding-left: 30px ;
             /* padding-top: 100px; */
             /* height: ; */
             /* height: 50px; */
@@ -196,7 +196,7 @@
             letter-spacing: 1px;
             line-height: 20px;
             padding: 10px;
-            padding-left: 20px;
+            padding-left: 50px;
             
             /* padding: px; */
         }
@@ -207,9 +207,39 @@
             background-color: black;
             color: white;
             padding: 5px;
-            margin: 10px 10px;
+            margin: 0px 30px;
         
         }
+        /* 第二個的CSS */
+        .container.second{
+            position:relative ;
+            /* background-color: aqua; */
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+        }
+        .container.second .car{
+            position: absolute;
+            left: 0px;
+        }
+        .container.second .youtu{
+            position: absolute;
+            left: -5px;
+        }
+        .container.second .gray{
+            position: absolute;
+            left: 30%;
+            width: 518px;
+            height: 413px;
+        }
+        .container.second .item3{
+            position: absolute;
+            left: 29%;
+            bottom: -95%;
+            height: 200px;
+            /* background-color: bisque; */
+        }
+        
     </style>
 </head>
 
@@ -257,6 +287,43 @@
                     <span>四輪獨立懸吊</span>
                     <p>搭載全新四輪獨立懸吊設定，透過懸吊的高乘載強度，保持輪胎抓地力，同時兼顧轉向靈敏度與清晰路感回饋，提升駕駛樂趣。</p>
                 </li>
+            </ul>
+        </div>
+    </div>
+
+
+
+
+
+    <div class="container second"><!--第二個-->
+        <div class="item1">
+            <div class="ph">
+                <p>02</p>
+                <h2>安全守護</h2>
+            </div>
+            <div class="hp">
+                <h3>行車更安心的高剛性車體</h3>
+                <p>您的愛車會妥善保護您，強悍穩固的車身可使您安全無虞。世界級的安全功能讓您輕鬆自如享受旅程、毫無後顧之憂。</p>
+            </div>
+        </div>
+        <img class="car" src="/TOYOYA/asset 29.png" alt="">
+        <img class="youtu" src="/TOYOYA/asset 26.png" alt="">
+        <div class="item2 gray">
+
+        </div>
+        <div class="item3">
+            <p>因為我們做了這些革新 </p>
+            <ul>
+                <li>
+                    <span>主動安全</span>
+                    <p>以先進的TSS系統，主動偵測路況，輔助駕駛判斷路況並維持行車安全。</p>
+                </li>
+                <li>
+                    <span>被動安全</span>
+                    <p>堅固的高剛性車體，使用熱沖壓材料的高強度抗扭鋼板，強化座艙對意外事故的保護力。
+                    </p>
+                </li>
+                
             </ul>
         </div>
     </div>
