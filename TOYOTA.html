@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="TOYOTA.scss">
+    <title>TOYOTA|練習</title>
+    <style>
+        h1 {
+            font-size: 40px;
+            /* margin: 0px auto; */
+            text-align: center;
+            margin: 10px;
+            position: relative;
+        }
+
+        h1::after {
+            content: "1111";
+            font-size: 0px;
+            background-color: black;
+            width: 40px;
+            height: 5px;
+            position: absolute;
+            bottom: -20px;
+            left: 0px;
+            right: 0px;
+            margin: auto;
+
+        }
+
+        .five {
+            margin: 50px auto;
+            
+            text-align: center;
+            width: 960px;
+            display: flex;
+            /* flex-direction: column; */
+            justify-content: space-between;
+            /* justify-items: sp; */
+        }
+        
+        span {
+            border: 1px dotted black;
+            /* border-bottom: 2px solid; */
+            /* border-color:#AE0014; */
+            font-size: 18px;
+            padding: 7px 55px;
+            position: relative;
+            /* margin: auto; */
+            /* width: 180px; */
+            /* margin: auto; */
+        }
+        span:hover{
+            color: white;
+        }
+        a{
+            text-decoration: none;
+            color: black;
+        }
+        span:hover::after{
+            
+            height: 36px;
+            animation: fiveAni .5s;
+        }
+        @keyframes fiveAni {
+            0%{height: 0px;}
+            100%{height: 36px;}
+        }
+        span::after {
+            content: "";
+            background-color: #AE0014;
+            width: 184px;
+            height: 2px;
+            position: absolute;
+            bottom: 0px;
+            left: -1px;
+            z-index: -1;
+            
+            /* margin: 0px 5px; */
+        }
+        .container{
+            width: 960px;
+            /* height: 812px; */
+            margin: auto;
+            margin-bottom: 500px;
+            /* background-color: khaki; */
+
+        }
+        
+        .item1 p,h2{
+            background-color: #ae0014;
+            color: white;
+        }
+        p:last-child{
+            background-color: black;
+            /* text-transform: capitalize; */
+            line-height: 20px;
+            font-size: 20px;
+            letter-spacing: 3px;
+            padding: 0px 10px 35px 20px;
+        }
+        p:first-child{
+            font-size: 150px;
+            writing-mode:vertical-lr;
+            padding: 10px 0px;
+            /* margin: 10px 0px; */
+            /* text-indent: 0px; */
+            line-height: 105px;
+            /* text-align: center; */
+            width: 40%;
+        }
+        .item1 h2{
+            font-size: 50px;
+            padding: 60px 0px;
+            width: 60%;
+            
+            /* text-align: center; */
+            
+        }
+        .item1 h3{
+            color: white;
+            font-size: 30px;
+            background-color: black;
+            padding: 40px 0px 15px 20px;
+            /* line-height: 40px; */
+        }
+        .item1{
+            width: 355px;
+            height: 388px;
+            /* background-color: wheat; */
+            
+            /* display: flex; */
+            /* flex-direction: column; */
+        }
+        .ph{
+            display: flex;
+            position: relative;
+            z-index: 1;
+        }
+        .container .car{
+            width: 70%;
+            position: absolute;
+            left: 20%;
+            top: 44%;
+        }
+        .container .youtu{
+            position: absolute;
+            right: 90px;
+            top: 90%;
+        }
+        .container{
+            /* background-color: aqua; */
+            position: relative;
+        }
+        .hp{
+            position: relative;
+            z-index: 1;
+        }
+        .gray{
+            width: 430px;
+            height: 290px;
+            background-color: #f3f3f3;
+            position: absolute;
+            right: 0px;
+            top: 20%;
+            z-index: -1;
+        }
+        .item3 p{
+            font-size: 20px;
+            color: #c53333;
+            writing-mode:horizontal-tb;
+            /* margin-left: 10px; */
+            /* padding: 1px 10px; */
+            padding-left: 10px ;
+            /* padding-top: 100px; */
+            /* height: ; */
+            /* height: 50px; */
+            line-height: 50px;
+        }
+        .item3{
+            width: 682px;
+            height: 275px;
+            background-color: #f3f3f3;
+            position: absolute;
+            bottom: -110%;
+            left: 50px;
+            z-index: 3;
+        }
+        .item3 li p{
+            font-size: 15px;
+            background-color: #f3f3f3;
+            color: black;
+            letter-spacing: 1px;
+            line-height: 20px;
+            padding: 10px;
+            padding-left: 20px;
+            
+            /* padding: px; */
+        }
+        .item3 li{
+            margin: 0px;
+        }
+        .item3 li span{
+            background-color: black;
+            color: white;
+            padding: 5px;
+            margin: 10px 10px;
+        
+        }
+    </style>
+</head>
+
+<body>
+    <h1>五大優勢</h1>
+    <div class="five">
+        <a href=""><span>操作樂趣</span></a>
+        <a href=""><span>安全守護</span></a>
+        <a href=""><span>乘坐舒適</span></a>
+        <a href=""><span>以人為本</span></a>
+        <a href=""><span>引以為傲</span></a>
+    </div>
+
+
+        <!-- 開切 -->
+    <div class="container"><!--第一個-->
+        <div class="item1">
+            <div class="ph">
+                <p>01</p>
+                <h2>操控樂趣</h2>
+            </div>
+            <div class="hp">
+                <h3>人人滿意的駕駛體驗</h3>
+                <p>透過最佳重量分配，實現平順起步、直線穩定加速，過彎同時保持車身平穩，帶給駕駛更靈敏的道路反饋，享受隨心馳騁的行駛快感</p>
+            </div>
+        </div>
+        <img class="car" src="/TOYOYA/asset 25.png" alt="">
+        <img class="youtu" src="/TOYOYA/asset 26.png" alt="">
+        <div class="item2 gray">
+
+        </div>
+        <div class="item3">
+            <p>因為我們做了這些革新 </p>
+            <ul>
+                <li>
+                    <span>低重心設計</span>
+                    <p>透過低重心設計，不僅呈現更低伏的外觀，更能減少車身側傾，保持高速行駛穩定性。</p>
+                </li>
+                <li>
+                    <span>車體剛性強化</span>
+                    <p>車身結構採用超高強度鋼材，提高車輛穩定性，同時藉由雷射強化焊接技術，大幅增加焊點數量，提升車身抗扭剛性，強化駕駛穩定性及安全性。
+                    </p>
+                </li>
+                <li>
+                    <span>四輪獨立懸吊</span>
+                    <p>搭載全新四輪獨立懸吊設定，透過懸吊的高乘載強度，保持輪胎抓地力，同時兼顧轉向靈敏度與清晰路感回饋，提升駕駛樂趣。</p>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+
+
+
+    
+
+
+
+
+
+    <div class="container"><!--第三個-->
+        <div class="item1">
+            <div class="ph">
+                <p>03</p>
+                <h2>乘坐舒適</h2>
+            </div>
+            <div class="hp">
+                <h3>令人放鬆舒適的車室空間</h3>
+                <p>車室空間設計著重人體工學，透過方向盤、踏板等位置優化，追求更舒適的駕駛位置，並以新型座椅設計，提高座椅包覆性，致力實現長途駕駛不疲勞的舒適駕馭體驗。</p>
+            </div>
+        </div>
+        <img class="car" src="/TOYOYA/asset 32.png" alt="">
+        <img class="youtu" src="/TOYOYA/asset 26.png" alt="">
+        <div class="item2 gray">
+
+        </div>
+        <div class="item3">
+            <p>因為我們做了這些革新 </p>
+            <ul>
+                <li>
+                    <span>駕駛位置最佳化</span>
+                    <p>針對駕駛位置進行徹底的修改，讓駕馭者可如同握手般自然且舒適地操控方向盤</p>
+                </li>
+                <li>
+                    <span>駕馭視野佳</span>
+                    <p>考量駕駛坐進車內的高度，透過前擋風玻璃位置的調整，達到盲區極小化，使駕駛視野更開闊，同步提升駕駛安全。
+                    </p>
+                </li>
+                <li>
+                    <span>更寧靜的車室</span>
+                    <p>採用最新三層結構的隔音材料，與引擎、變速箱的零件改，將座艙的震動抑制在最小限度，提供乘客舒適安靜的感受。</p>
+                </li>
+            </ul>
+        </div>
+    </div>
+</body>
+
+</html>

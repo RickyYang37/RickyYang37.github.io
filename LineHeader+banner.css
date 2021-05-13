@@ -1,0 +1,169 @@
+.header {
+    background-color: rgb(255, 255, 255);
+    width: 100%;
+    height: 75px;
+    position: fixed;
+    display: flex;
+    opacity: 90%;
+    /* margin: auto; */
+    /* justify-content: space-around; */
+}
+
+.header img {
+    width: 43px;
+    height: 16px;
+    padding: 30px;
+    /* text-indent: 10px; */
+}
+
+ul {
+    display: flex;
+    list-style: none;
+    /* justify-content: center; */
+    margin: auto;
+    
+}
+ul li{
+    margin: auto 40px;
+    border-bottom: 4px solid transparent;
+    padding: 8px;
+}
+.header .item1{
+    
+    border-bottom-color: black;
+    border-width: 4px;
+}
+.lan{
+    padding: 30px;
+    
+}
+
+.banner {
+    background-image: url("/Line圖/mv01.jpg");
+    /* background-size: auto; */
+    /* margin: auto; */
+    /* width: 100%; */
+    
+}
+.Content{
+    /* background-color: tomato; */
+    width: 960px;
+    /* width: 100%; */
+    height:880px;
+    margin:  auto 10px;
+    
+}
+
+.Content h2{
+    font-size: 150px;
+    color: white;
+    /* text-indent: 100px; */
+    /* margin-top: 100px; */
+    /* text-align: center; */
+}
+.Content h3{
+    font-size: 50px;
+    color: white;
+    margin: auto;
+    /* text-indent: 100px; */
+}
+.title h3{
+    font-size: 70px;
+    color: black;
+    text-align: center;
+    margin-bottom: 25px;
+}
+.title p{
+    font-size: 20px;
+    text-align: center;
+}
+h2 {
+    font-size: 100px;
+    color: white;
+}
+
+h3 {
+    font-size: 50px;
+    color: white;
+}
+
+.title {
+    width: 960px;
+    height: auto;
+    margin: auto;
+    padding: 70px 0px;
+}
+.footer .top,
+        .footer .bottom {
+            list-style: none;
+            /* display: flex; */
+            height: 80px;
+            width: 960px;
+        }
+
+        /* .footer .top{
+            margin: 20px;
+            
+        } */
+        .footer .top li {
+            margin: 1px;
+            /* padding: 10px; */
+        }
+
+        .footer ul {
+            width: 90%;
+            margin: auto;
+            padding: 25px;
+        }
+
+        .footer img {
+            height: 40px;
+            width: 40px;
+        }
+
+        .footer .bottom {
+            display: flex;
+
+            /* margin: auto; */
+        }
+
+        .footer .bottom a {
+            margin: auto;
+            margin-left: 40px;
+            /* padding-top: 40px; */
+            /* display: flex; */
+        }
+
+        .footer .bottom ul {
+
+            width: 80%;
+            margin: auto;
+            padding: 10px;
+            /* display: flex; */
+        }
+
+        .footer .bottom li {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        .footer .bottom img {
+            height: 25px;
+            width: 25px;
+            margin: auto 1px;
+        }
+
+        .footer .bottom p {
+
+            margin: auto 20px;
+        }
+
+        .footer .bottom a {
+
+            margin: auto 4px;
+        }
+
+        .footer .bottom .first {
+
+            margin-left:48px;
+        }
