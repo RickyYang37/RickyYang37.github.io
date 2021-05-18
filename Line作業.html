@@ -10,33 +10,27 @@
     <link rel="stylesheet" href="LineHeader+banner.css">
     <script src="https://kit.fontawesome.com/b8a44a9475.js" crossorigin="anonymous"></script>
     <style>
-        * {
-            /* outline: solid 1px olive; */
-            font-family: 'Noto Sans JP';
-
-        }
-
         a {
             text-decoration: none;
             color: black;
         }
 
-
-
         .container {
-            width: 960px;
-            height: auto;
+            /* width: 100%; */
+            max-width: 960px;
             margin: auto;
-            /* display: inline-flex; */
-            /* flex-direction: column; */
-            /* flex-wrap: wrap; */
+
+            display: flex;
+            flex-wrap: wrap;
         }
 
         .box1 {
             width: 480px;
-            border-right: 1px dotted black;
-            display: inline-block;
-            /* flex-direction: column; */
+            /* max-width: 480px; */
+            box-sizing: border-box;
+            /* border-right: 1px dotted black; */
+            padding: 165px 0px;
+            /* margin: 0px 1px; */
         }
 
         .box1 h4 {
@@ -55,26 +49,53 @@
             margin: 0px 0px 60px;
         }
 
-        .box1 img.left {
-            width: 100%;
-            height: 880px;
-            margin: 0px;
-            padding: 0px;
+
+        .box1 .fas {
+            /* background-color: rebeccapurple; */
+            border: 1px dotted gray;
+            padding: 20px;
+
         }
+
 
         .box2 {
-            width: 480px;
-            margin: 0px 0px auto 480px;
-            display: inline-block;
+            width: 50%;
+            max-width: 478px;
+        }
+        
+        .box2 img {
+            /* box-sizing: content-box; */
+            width: 880px;
+            height: 560px;
+            margin-left: -150px;
+            padding: 100px 0px;
+            /* background-size: cover; */
         }
 
-        .box2 img {
-            width: 480px;
+        .container:nth-child(2n+1){
+            flex-direction:row-reverse ;
+            /* direction: rtl; */
+        }
+        .container:nth-child(2n+1) img{
+            margin-left: -250px;
+        }
+        .container:nth-child(2n+1) .box1{
+            /* background-color: green; */
+            border-left:1px dotted black;
+            padding-left: 40px;
+            margin: 0px 1px;
+        }
+        .container:nth-child(2n+1) .box1 img{
+            margin: auto;
+        }
+        .container:nth-child(even) .box1{
+            border-right: 1px dotted black;
+            /* margin-left: 20px; */
         }
 
         .container2 {
             width: 960px;
-            height: 100%;
+            /* height: 100%; */
             margin: auto;
             display: flex;
             flex-wrap: wrap;
@@ -101,6 +122,7 @@
             font-size: 14px;
         }
 
+        
         .banner2 .back {
             background-image: url(/Line圖/back.png);
             height: 300px;
@@ -148,10 +170,11 @@
             color: white;
         }
 
-        .feat{
+        .feat {
             display: flex;
             flex-wrap: wrap;
         }
+
         .feature {
             width: 270px;
             height: 340px;
@@ -161,29 +184,122 @@
             /* display: flex; */
             /* margin-right: 0px; */
         }
-        .feature img{
+
+        .feature img {
             height: 70px;
             width: 70px;
             /* padding: 20px; */
             margin: 30px;
         }
-        .feature h5{
+
+        .feature h5 {
             /* padding: 20px; */
             margin: 10px;
             margin-left: 30px;
             font-size: 20px;
         }
-        .feature p{
+
+        .feature p {
             /* padding: 20px; */
             margin: 10px;
             margin-left: 30px;
             font-size: 14px;
         }
-        .Content .item{
+
+        .Content .item {
             margin: auto;
             display: flex;
         }
         
+        [class^=col-]{
+            /* padding: 0px 10px; */
+            box-sizing: border-box;
+        }
+
+        .col-1{width: 8.333%;}
+        .col-2{width: 16.666%;}
+        .col-3{width: 25%;}
+        .col-4{width: 33.333%;}
+        .col-5{width: 41.666%;}
+        .col-6{width: 50%;}
+        .col-7{width: 58.333%;}
+        .col-8{width: 66.666%;}
+        .col-9{width: 75%;}
+        .col-10{width: 83.333%;}
+        .col-11{width: 91.666%;}
+        .col-12{width: 100%;}
+
+        @media screen and (min-width:768px) {
+            .col-md-1{width: 8.333%;}
+            .col-md-2{width: 16.666%;}
+            .col-md-3{width: 25%;}
+            .col-md-4{width: 33.333%;}
+            .col-md-5{width: 41.666%;}
+            .col-md-6{width: 50%;}
+            .col-md-7{width: 58.333%;}
+            .col-md-8{width: 66.666%;}
+            .col-md-9{width: 75%;}
+            .col-md-10{width: 83.333%;}
+            .col-md-11{width: 91.666%;}
+            .col-md-12{width: 100%;}
+
+            .Content .show{
+                display: flex;
+            }
+            .Content .item{
+                display: none;
+            }
+            .Content .row{
+                display: none;
+            }
+        }
+
+        @media screen and (min-width:992px) {
+            .col-lg-1{width: 8.333%;}
+            .col-lg-2{width: 16.666%;}
+            .col-lg-3{width: 25%;}
+            .col-lg-4{width: 33.333%;}
+            .col-lg-5{width: 41.666%;}
+            .col-lg-6{width: 50%;}
+            .col-lg-7{width: 58.333%;}
+            .col-lg-8{width: 66.666%;}
+            .col-lg-9{width: 75%;}
+            .col-lg-10{width: 83.333%;}
+            .col-lg-11{width: 91.666%;}
+            .col-lg-12{width: 100%;}
+
+            .Content .show{
+                display: none;
+            }
+            .Content .item{
+                display: flex;
+            }
+            .Content .row{
+                display: flex;
+            }
+            
+        }
+
+        @media screen and (min-width:1200px) {
+            .col-xl-1{width: 8.333%;}
+            .col-xl-2{width: 16.666%;}
+            .col-xl-3{width: 25%;}
+            .col-xl-4{width: 33.333%;}
+            .col-xl-5{width: 41.666%;}
+            .col-xl-6{width: 50%;}
+            .col-xl-7{width: 58.333%;}
+            .col-xl-8{width: 66.666%;}
+            .col-xl-9{width: 75%;}
+            .col-xl-10{width: 83.333%;}
+            .col-xl-11{width: 91.666%;}
+            .col-xl-12{width: 100%;}
+
+            
+            .Content .show{
+                display: none;
+            }
+            
+        }
     </style>
 </head>
 
@@ -207,17 +323,26 @@
     </div>
 
     <div class="banner">
-        <div class="Content">
+        <div class="Content ">
             <h2>Life on LINE</h2>
 
             <h3>LINE始終陪伴在你身旁。</h3>
-
-            <div class="item">
+            
+            <div class="show">
                 <img src="/Line圖/icon-line-w.png" alt="Line">
                 <p>下載</p>
-                <i class="fab fa-apple"></i>
-                <i class="fab fa-google-play"></i>
-                <i class="fas fa-desktop"></i>
+            </div>
+            <div class="row">
+                <img src="/Line圖/icon-line-w.png" alt="Line">
+                <p>下載</p>
+                
+                
+            </div>
+            
+            <div class="item">
+                <a href=""><i class="fab fa-apple"></i></a>
+                <a href=""><i class="fab fa-google-play"></i></a>
+                <a href=""><i class="fas fa-desktop"></i></a>
             </div>
         </div>
 
@@ -230,36 +355,95 @@
 
     <div class="container">
 
-        <div class="box1">
+        <div class="box1 col-12 col-md-6 col-lg-6 col-xl-6">
             <img src="/Line圖/today.png" alt="">
             <h4>LINE TODAY</h4>
             <h5>隨點隨看 生活快充</h5>
             <div>
                 最即時的新聞、影音、運動賽事和娛樂內容直播，讓你話題永不斷線，LINE TODAY陪伴您的每一天！
             </div>
-            <i class="fas fa-external-link-alt" aria-hidden="true">其他詳細資訊</i>
+            <i class="fas fa-external-link-alt" aria-hidden="true"> 其他詳細資訊</i>
+        </div>
 
+        <div class="box2 col-12 col-md-6 col-lg-6 col-xl-6">
+            <img class="right" src="/Line圖/linetoday.png" alt="">
+        </div>
+
+    </div>
+
+    <div class="container">
+
+        <div class="box1 col-12 col-md-6 col-lg-6 col-xl-6">
+            <img src="/Line圖/today.png" alt="">
+            <h4>LINE貼文串</h4>
+            <h5>探索樂趣，分享生活</h5>
+            <div>
+                在貼文串追蹤你的最愛．有感內容不錯過。
+                打造你的個人閱知頻道，探索生活大小事。
+                分享所見所聞，串連人際、啟發創意的無限可能！
+            </div>
+            <i class="fas fa-external-link-alt" aria-hidden="true"> 其他詳細資訊</i>
+        </div>
+
+        <div class="box2 col-12 col-md-6 col-lg-6 col-xl-6">
             <img class="left" src="/Line圖/linepaste.png" alt="">
         </div>
 
-
-        <div class="box2">
-            <img class="right" src="/Line圖/linetoday.png" alt="">
-        </div>
     </div>
 
-    <div class="title">
+
+    <div class="container">
+
+        <div class="box1 col-12 col-md-6 col-lg-6 col-xl-6">
+            <img src="/Line圖/today.png" alt="">
+            <h4>LINE Pay</h4>
+            <h5>付款、轉帳、生活繳費，輕鬆簡單又便利！</h5>
+            <div>
+                付款簡單又便利，還能輕鬆轉帳給LINE好友，動動手指輕鬆完成日常生活各種帳單繳費， 免出門省時又省力。
+            </div>
+            <i class="fas fa-external-link-alt" aria-hidden="true"> 其他詳細資訊</i>
+        </div>
+
+        <div class="box2 col-12 col-md-6 col-lg-6 col-xl-6">
+            <img class="right" src="/Line圖/linepay.png" alt="">
+        </div>
+
+    </div>
+
+
+    <div class="container">
+
+        <div class="box1 col-12 col-md-6 col-lg-6 col-xl-6">
+            <img src="/Line圖/today.png" alt="">
+            <h4>LINE購物</h4>
+            <h5>先LINE購物再購物</h5>
+            <div>
+                涵蓋各大購物、拍賣、精品、通路、旅遊、及票券商店，輕鬆貨比五百家，一站比價三千萬筆商品，再享LINE POINTS回饋賺不停
+            </div>
+            <i class="fas fa-external-link-alt" aria-hidden="true"> 其他詳細資訊</i>
+        </div>
+
+        <div class="box2 col-12 col-md-6 col-lg-6 col-xl-6">
+            <img class="right" src="/Line圖/lineshop.png" alt="">
+        </div>
+
+    </div>
+
+
+
+
+    <div class="title col-12 ">
         <h3>通訊軟體</h3>
         <p>一款全新型態的通訊軟體，讓您隨時隨地享受免費傳訊、免費通話等溝通樂趣。</p>
     </div>
 
     <div class="container2">
-        <div class="content">
+        <div class="content col-12 col-md-6 col-lg-6 col-xl-6">
             <img src="/Line圖/feature chat.png" alt="">
             <h4>聊天、語音通話&視訊通話</h4>
             <p>能夠和好友一對一或多人群組訊息聊天，或是進行語音、視訊通話。</p>
         </div>
-        <div class="content">
+        <div class="content col-12 col-md-6 col-lg-6 col-xl-6">
             <img src="/Line圖/feature group.png" alt="">
             <h4>貼圖＆表情貼＆主題</h4>
             <p>使用有趣的貼圖或表情貼豐富聊天，也能更換超讚的主題來表達自己。</p>
@@ -417,8 +601,8 @@
                 <h5>Line Pay</h5>
                 <p>拉近人與人、人與資訊及應用服務間的距離的通訊軟體</p>
             </div>
-            
-            
+
+
         </div>
     </div>
 

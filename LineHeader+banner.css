@@ -40,34 +40,97 @@ ul li{
 
 .banner {
     background-image: url("/Line圖/mv01.jpg");
-    /* background-size: auto; */
+    background-size: cover;
     /* margin: auto; */
-    /* width: 100%; */
-    
+    width: 100%;
+    /* height: 1000px; */
+    /* max-height:1000px; */
+    /* height: 100%; */
 }
 .Content{
     /* background-color: tomato; */
-    width: 960px;
     /* width: 100%; */
-    height:880px;
-    margin:  auto 10px;
+    /* max-width: 1440px; */
+    /* max-height: 1000px; */
+    /* height:100%; */
+    
+    margin:  0px 0px 0px 200px;
+    
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    /* justify-content: flex-start; */
+    
     
 }
 
 .Content h2{
     font-size: 150px;
     color: white;
-    /* text-indent: 100px; */
-    /* margin-top: 100px; */
-    /* text-align: center; */
+    padding: 300px 0px 10px 0px;
+    /* width: 60%; */
+    height: 50%;
+    /* margin-top: 200px; */
+    /* text-align: left; */
 }
 .Content h3{
     font-size: 50px;
     color: white;
-    margin: auto;
+    /* width: 40%; */
+    /* height: 10%; */
+    /* margin: auto; */
     /* text-indent: 100px; */
 }
+.Content img{
+    width: 25px;
+    height: 25px;
+    
+}
+.Content p{
+    color: white;
+    margin-left: 10px;
+}
+.Content .row{
+    /* background-color: violet; */
+    display: flex;
+    margin-top: 50px;
+    margin-bottom: 350px;
+    
+    align-items: center;
+    width: 10%;
+    height: 10%;
+}
+.Content .show{
+    display: flex;
+    margin: 20px 0px;
+    width: 100px;
+    align-items: center;
+    /* display: none; */
+    /* background-color: yellow; */
+    border: 1px solid white;
+    padding: 10px 80px 10px 20px;
+}
+
+.Content .item{
+    /* background-color: aqua; */
+    position: absolute;
+    bottom: 250px;
+    width: 10%;
+    /* height: 30%; */
+    /* padding-bottom: 1000px; */
+    
+}
+
+.item .fab,
+.item .fas{
+    border: 1px dotted white;
+    padding: 22px;
+    margin-right:5px ;
+    color: white;
+    border-radius: 7px;
+}
 .title h3{
+    /* width: 100%; */
     font-size: 70px;
     color: black;
     text-align: center;
@@ -89,6 +152,7 @@ h3 {
 
 .title {
     width: 960px;
+    width: 100%;
     height: auto;
     margin: auto;
     padding: 70px 0px;
@@ -167,3 +231,20 @@ h3 {
 
             margin-left:48px;
         }
+        /* @media screen and (max-width:991px){
+            .Content .item{
+                display: none;
+            }
+            .Content .row{
+                display: none;
+            }
+            .Content .show{
+                display: flex;
+            }
+        }
+        @media screen and (min-width:992px) {
+            
+            .Content .show{
+                display: none;
+            }
+        } */
