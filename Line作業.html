@@ -8,6 +8,7 @@
     <title>Line | always at your side.練習</title>
     <link rel="stylesheet" href="reset.css">
     <link rel="stylesheet" href="LineHeader+banner.css">
+    <!-- <link rel="stylesheet" href="grid.css"> -->
     <script src="https://kit.fontawesome.com/b8a44a9475.js" crossorigin="anonymous"></script>
     <style>
         a {
@@ -55,6 +56,12 @@
             border: 1px dotted gray;
             padding: 20px;
 
+
+        }
+
+        .box1 .fas:hover {
+            background-color: #07b53b;
+            color: white;
         }
 
 
@@ -62,7 +69,7 @@
             width: 50%;
             max-width: 478px;
         }
-        
+
         .box2 img {
             /* box-sizing: content-box; */
             width: 880px;
@@ -72,29 +79,34 @@
             /* background-size: cover; */
         }
 
-        .container:nth-child(2n+1){
-            flex-direction:row-reverse ;
+        .container:nth-child(2n+1) {
+            flex-direction: row-reverse;
             /* direction: rtl; */
         }
-        .container:nth-child(2n+1) img{
+
+        .container:nth-child(2n+1) img {
             margin-left: -250px;
         }
-        .container:nth-child(2n+1) .box1{
+
+        .container:nth-child(2n+1) .box1 {
             /* background-color: green; */
-            border-left:1px dotted black;
+            border-left: 1px dotted black;
             padding-left: 40px;
             margin: 0px 1px;
         }
-        .container:nth-child(2n+1) .box1 img{
+
+        .container:nth-child(2n+1) .box1 img {
             margin: auto;
         }
-        .container:nth-child(even) .box1{
+
+        .container:nth-child(even) .box1 {
             border-right: 1px dotted black;
             /* margin-left: 20px; */
         }
 
         .container2 {
-            width: 960px;
+            width: 100%;
+            max-width: 960px;
             /* height: 100%; */
             margin: auto;
             display: flex;
@@ -102,13 +114,14 @@
             /* background-color: rgb(100, 149, 237); */
         }
 
-        .container2 img {
-            width: 320px;
-            height: 240px;
+        .container2 .content img {
+            width: 100%;
+
+            /* height: 240px; */
         }
 
         .container2 .content {
-            width: 320px;
+            width: 33.3333%;
             text-align: center;
         }
 
@@ -122,7 +135,7 @@
             font-size: 14px;
         }
 
-        
+
         .banner2 .back {
             background-image: url(/Line圖/back.png);
             height: 300px;
@@ -140,28 +153,36 @@
 
         /* 很多的那個 */
         .service {
-            width: 960px;
+            width: 100%;
+            max-width: 960px;
             margin: auto;
-            /* background-color: wheat; */
+            background-color: #f6f7f8;
             display: flex;
-            /* flex-wrap: wrap; */
+
         }
 
         .tag {
             list-style: none;
-            margin: auto;
-            margin-top: 40px;
-            /* height: 960px; */
-            /* background-color: tomato; */
-            display: block;
+            /* margin: auto; */
+            width: 100%;
+            /* background-color: blue; */
+            position: sticky;
+            top: 100px;
+
+        }
+
+        .scrollArea {
+            width: 10%;
+            /* background-color: #f6f7f8; */
         }
 
         .tag button {
             border-radius: 25px;
             /* width: 100%; */
             height: 36px;
-            background-color: white;
+            background-color: #f6f7f8;
             padding: 1px 15px;
+            margin: 5px 0px;
 
         }
 
@@ -173,16 +194,67 @@
         .feat {
             display: flex;
             flex-wrap: wrap;
+            width: 90%;
+        }
+
+        .foroverlay {
+            width: 30.99999%;
+            height: 340px;
+            position: relative;
+            background-color: rosybrown;
+            margin: 10px;
+
         }
 
         .feature {
-            width: 270px;
+            /* width: 30.99999%; */
             height: 340px;
-            /* background-color: violet; */
-            margin: 10px;
-            /* padding: 10px; */
-            /* display: flex; */
+            box-shadow: 1px 1px 15px rgba(0, 0, 0, 0.3);
+            background-color: white;
+            /* margin: 10px; */
+            box-sizing: border-box;
             /* margin-right: 0px; */
+        }
+
+
+        .overlay {
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0px;
+            background-color: rgba(0, 0, 0, .7);
+            /* bottom: 0px; */
+            left: 0px;
+            display: none;
+            /* right: 0px; */
+            /* margin: auto ;  */
+        }
+
+        .foroverlay:hover .overlay{
+            display: flex;
+            /* background-color: red; */
+        }
+
+        .overlay i {
+            border: 1px dotted white;
+            /* background-color: red; */
+            padding: 10px 0px 10px 10px;
+            width: 50%;
+            margin: 20px auto;
+            color: white;
+        }
+        
+        .overlay i a{
+            text-decoration: none;
+            color: white;
+        }
+        .overlay i:hover{
+            background-color: #07b53b;
         }
 
         .feature img {
@@ -210,95 +282,119 @@
             margin: auto;
             display: flex;
         }
-        
-        [class^=col-]{
-            /* padding: 0px 10px; */
-            box-sizing: border-box;
+
+        @media screen and (min-width:878px) {
+            .banner .Content .show {
+                display: none;
+            }
+
         }
 
-        .col-1{width: 8.333%;}
-        .col-2{width: 16.666%;}
-        .col-3{width: 25%;}
-        .col-4{width: 33.333%;}
-        .col-5{width: 41.666%;}
-        .col-6{width: 50%;}
-        .col-7{width: 58.333%;}
-        .col-8{width: 66.666%;}
-        .col-9{width: 75%;}
-        .col-10{width: 83.333%;}
-        .col-11{width: 91.666%;}
-        .col-12{width: 100%;}
+        @media screen and (max-width:877px) {
 
-        @media screen and (min-width:768px) {
-            .col-md-1{width: 8.333%;}
-            .col-md-2{width: 16.666%;}
-            .col-md-3{width: 25%;}
-            .col-md-4{width: 33.333%;}
-            .col-md-5{width: 41.666%;}
-            .col-md-6{width: 50%;}
-            .col-md-7{width: 58.333%;}
-            .col-md-8{width: 66.666%;}
-            .col-md-9{width: 75%;}
-            .col-md-10{width: 83.333%;}
-            .col-md-11{width: 91.666%;}
-            .col-md-12{width: 100%;}
-
-            .Content .show{
-                display: flex;
-            }
-            .Content .item{
+            .banner .Content .row,
+            .banner .Content .item {
                 display: none;
             }
-            .Content .row{
+
+            .container .box1,
+            .container .box2 {
+                width: 100%;
+                max-width: 880px;
+                padding: 0px;
+            }
+
+            .container .box1 {
+                padding-left: 17%;
+                /* height: 10%; */
+
+            }
+
+            .container .box1:first-of-type,
+            .container .box1 div {
+                font-size: 14px;
+            }
+
+            .container .box1 h4 {
+                font-size: 18px;
+            }
+
+            .container .box1 img {
+                width: 40px;
+                height: 40px;
+            }
+
+            .container .box1 div {
+                margin: 0px;
+            }
+
+            .container .box2 img {
+                width: 100%;
+                background-size: cover;
+                margin: auto;
+                padding: 0px;
+            }
+
+            /* 第一個container */
+            .container {
+                /* display: flex; */
+                flex-direction: column-reverse;
+                /* width: 100%; */
+            }
+
+            /* 二三四container */
+            .container:nth-child(2n+1) {
+                flex-direction: column-reverse;
+                /* padding-left: 17% ; */
+
+            }
+
+            .container:nth-child(even) .box1 {
+                /* background-color: purple; */
+                margin-left: 17%;
+                width: 80%;
+                border-right: none;
+                border-left: 1px dotted black;
+                padding-left: 40px;
+                position: relative;
+            }
+
+            .container:nth-child(even) .box1 img {
+                position: absolute;
+                left: -20px;
+            }
+
+            .container:nth-child(odd) .box1 {
+                /* padding-left: 17%; */
+                /* background-color: black; */
+                width: 80%;
+                border-left: 1px dotted black;
+                margin-left: 17%;
+                /* background-color: blue; */
+                position: relative;
+            }
+
+            .container:nth-child(odd) .box1 img {
+                position: absolute;
+                left: -20px;
+            }
+
+            .container2 .content {
+                margin: auto;
+
+                width: 100%;
+                /* background-color: red; */
+            }
+
+            .service .scrollArea {
                 display: none;
             }
-        }
 
-        @media screen and (min-width:992px) {
-            .col-lg-1{width: 8.333%;}
-            .col-lg-2{width: 16.666%;}
-            .col-lg-3{width: 25%;}
-            .col-lg-4{width: 33.333%;}
-            .col-lg-5{width: 41.666%;}
-            .col-lg-6{width: 50%;}
-            .col-lg-7{width: 58.333%;}
-            .col-lg-8{width: 66.666%;}
-            .col-lg-9{width: 75%;}
-            .col-lg-10{width: 83.333%;}
-            .col-lg-11{width: 91.666%;}
-            .col-lg-12{width: 100%;}
+            .service .foroverlay {
+                width: 100%;
 
-            .Content .show{
-                display: none;
             }
-            .Content .item{
-                display: flex;
-            }
-            .Content .row{
-                display: flex;
-            }
-            
-        }
 
-        @media screen and (min-width:1200px) {
-            .col-xl-1{width: 8.333%;}
-            .col-xl-2{width: 16.666%;}
-            .col-xl-3{width: 25%;}
-            .col-xl-4{width: 33.333%;}
-            .col-xl-5{width: 41.666%;}
-            .col-xl-6{width: 50%;}
-            .col-xl-7{width: 58.333%;}
-            .col-xl-8{width: 66.666%;}
-            .col-xl-9{width: 75%;}
-            .col-xl-10{width: 83.333%;}
-            .col-xl-11{width: 91.666%;}
-            .col-xl-12{width: 100%;}
-
-            
-            .Content .show{
-                display: none;
-            }
-            
         }
     </style>
 </head>
@@ -327,7 +423,7 @@
             <h2>Life on LINE</h2>
 
             <h3>LINE始終陪伴在你身旁。</h3>
-            
+
             <div class="show">
                 <img src="/Line圖/icon-line-w.png" alt="Line">
                 <p>下載</p>
@@ -335,10 +431,10 @@
             <div class="row">
                 <img src="/Line圖/icon-line-w.png" alt="Line">
                 <p>下載</p>
-                
-                
+
+
             </div>
-            
+
             <div class="item">
                 <a href=""><i class="fab fa-apple"></i></a>
                 <a href=""><i class="fab fa-google-play"></i></a>
@@ -355,7 +451,7 @@
 
     <div class="container">
 
-        <div class="box1 col-12 col-md-6 col-lg-6 col-xl-6">
+        <div class="box1">
             <img src="/Line圖/today.png" alt="">
             <h4>LINE TODAY</h4>
             <h5>隨點隨看 生活快充</h5>
@@ -364,16 +460,16 @@
             </div>
             <i class="fas fa-external-link-alt" aria-hidden="true"> 其他詳細資訊</i>
         </div>
-
-        <div class="box2 col-12 col-md-6 col-lg-6 col-xl-6">
+        <div class="box2">
             <img class="right" src="/Line圖/linetoday.png" alt="">
         </div>
+
 
     </div>
 
     <div class="container">
 
-        <div class="box1 col-12 col-md-6 col-lg-6 col-xl-6">
+        <div class="box1">
             <img src="/Line圖/today.png" alt="">
             <h4>LINE貼文串</h4>
             <h5>探索樂趣，分享生活</h5>
@@ -385,7 +481,7 @@
             <i class="fas fa-external-link-alt" aria-hidden="true"> 其他詳細資訊</i>
         </div>
 
-        <div class="box2 col-12 col-md-6 col-lg-6 col-xl-6">
+        <div class="box2">
             <img class="left" src="/Line圖/linepaste.png" alt="">
         </div>
 
@@ -394,7 +490,7 @@
 
     <div class="container">
 
-        <div class="box1 col-12 col-md-6 col-lg-6 col-xl-6">
+        <div class="box1">
             <img src="/Line圖/today.png" alt="">
             <h4>LINE Pay</h4>
             <h5>付款、轉帳、生活繳費，輕鬆簡單又便利！</h5>
@@ -404,7 +500,7 @@
             <i class="fas fa-external-link-alt" aria-hidden="true"> 其他詳細資訊</i>
         </div>
 
-        <div class="box2 col-12 col-md-6 col-lg-6 col-xl-6">
+        <div class="box2">
             <img class="right" src="/Line圖/linepay.png" alt="">
         </div>
 
@@ -413,7 +509,7 @@
 
     <div class="container">
 
-        <div class="box1 col-12 col-md-6 col-lg-6 col-xl-6">
+        <div class="box1">
             <img src="/Line圖/today.png" alt="">
             <h4>LINE購物</h4>
             <h5>先LINE購物再購物</h5>
@@ -423,36 +519,40 @@
             <i class="fas fa-external-link-alt" aria-hidden="true"> 其他詳細資訊</i>
         </div>
 
-        <div class="box2 col-12 col-md-6 col-lg-6 col-xl-6">
+        <div class="box2 ">
             <img class="right" src="/Line圖/lineshop.png" alt="">
         </div>
 
     </div>
 
-
-
-
-    <div class="title col-12 ">
+    <div class="title ">
         <h3>通訊軟體</h3>
         <p>一款全新型態的通訊軟體，讓您隨時隨地享受免費傳訊、免費通話等溝通樂趣。</p>
     </div>
 
+
     <div class="container2">
-        <div class="content col-12 col-md-6 col-lg-6 col-xl-6">
+
+        <div class="content">
             <img src="/Line圖/feature chat.png" alt="">
             <h4>聊天、語音通話&視訊通話</h4>
             <p>能夠和好友一對一或多人群組訊息聊天，或是進行語音、視訊通話。</p>
         </div>
-        <div class="content col-12 col-md-6 col-lg-6 col-xl-6">
+
+
+        <div class="content">
             <img src="/Line圖/feature group.png" alt="">
             <h4>貼圖＆表情貼＆主題</h4>
             <p>使用有趣的貼圖或表情貼豐富聊天，也能更換超讚的主題來表達自己。</p>
         </div>
+
+
         <div class="content">
             <img src="/Line圖/feature main.png" alt="">
             <h4>主頁</h4>
             <p>可以快速連結 LINE 的各種服務，包含貼圖等多樣的內容資訊。</p>
         </div>
+
         <div class="content">
             <img src="/Line圖/feature paste.png" alt="">
             <h4>社群</h4>
@@ -482,125 +582,294 @@
     </div>
 
     <div class="service">
-        <div class="tag">
-            <li class="but"><a href=""><button> All Product</button></a></li>
-            <li><a href=""><button>通訊</button></a></li>
-            <li><a href=""><button>娛樂</button></a></li>
-            <li><a href=""><button>生活</button></a></li>
-            <li><a href=""><button>購物</button></a></li>
-            <li><a href=""><button>工具</button></a></li>
-            <li><a href=""><button>金融</button></a></li>
-            <li><a href=""><button>企業商務</button></a></li>
-            <li><a href=""><button>新聞資訊</button></a></li>
-            <li><a href=""><button>相機</button></a></li>
-            <li><a href=""><button>Games</button></a></li>
+        <div class="scrollArea">
+            <div class="tag ">
+                <li class="but"><a href=""><button> All Product</button></a></li>
+                <li><a href=""><button>通訊</button></a></li>
+                <li><a href=""><button>娛樂</button></a></li>
+                <li><a href=""><button>生活</button></a></li>
+                <li><a href=""><button>購物</button></a></li>
+                <li><a href=""><button>工具</button></a></li>
+                <li><a href=""><button>金融</button></a></li>
+                <li><a href=""><button>企業商務</button></a></li>
+                <li><a href=""><button>新聞資訊</button></a></li>
+                <li><a href=""><button>相機</button></a></li>
+                <li><a href=""><button>Games</button></a></li>
+            </div>
         </div>
         <div class="feat">
-            <div class="feature">
-                <img src="/Line圖/item-coupon.png" alt="">
-                <h5>Line Messenger</h5>
-                <p>拉近人與人、人與資訊及應用服務間的距離的通訊軟體</p>
+            <div class="foroverlay">
+                <div class="feature">
+                    <img src="/Line圖/item-line.png" alt="">
+                    <h5>Line Messenger</h5>
+                    <p>拉近人與人、人與資訊及應用服務間的距離的通訊軟體</p>
+                </div>
+                <div class="overlay">
+                    <i class="fab fa-apple"><a href=""> App Store</a></i>
+                    <i class="fab fa-google-play"><a href=""> Google Play</a></i>
+                    <i class="fas fa-external-link-alt" aria-hidden="true"><a href=""> 其他詳細資訊</a></i>
+                </div>
             </div>
-            <div class="feature">
-                <img src="/Line圖/item-coupon.png" alt="">
-                <h5>Line Store</h5>
-                <p>拉近人與人、人與資訊及應用服務間的距離的通訊軟體</p>
+            <div class="foroverlay">
+                <div class="feature ">
+                    <img src="/Line圖/item-store.png" alt="">
+                    <h5>Line Store</h5>
+                    <p>拉近人與人、人與資訊及應用服務間的距離的通訊軟體</p>
+                </div>
+                <div class="overlay">
+                    <i class="fab fa-apple"><a href=""> App Store</a></i>
+                    <i class="fab fa-google-play"><a href=""> Google Play</a></i>
+                    <i class="fas fa-external-link-alt" aria-hidden="true"><a href=""> 其他詳細資訊</a></i>
+                </div>
             </div>
-            <div class="feature">
-                <img src="/Line圖/item-coupon.png" alt="">
-                <h5>Line 貼文串</h5>
-                <p>拉近人與人、人與資訊及應用服務間的距離的通訊軟體</p>
+            
+            <div class="foroverlay">
+                <div class="feature ">
+                    <img src="/Line圖/linepastelogo.png" alt="">
+                    <h5>Line 貼文串</h5>
+                    <p>拉近人與人、人與資訊及應用服務間的距離的通訊軟體</p>
+                </div>
+                <div class="overlay">
+                    <i class="fab fa-apple"><a href=""> App Store</a></i>
+                    <i class="fab fa-google-play"><a href=""> Google Play</a></i>
+                    <i class="fas fa-external-link-alt" aria-hidden="true"><a href=""> 其他詳細資訊</a></i>
+                </div>
             </div>
-            <div class="feature">
-                <img src="/Line圖/item-coupon.png" alt="">
-                <h5>Line Antivirus</h5>
-                <p>拉近人與人、人與資訊及應用服務間的距離的通訊軟體</p>
+
+            <div class="foroverlay">
+                <div class="feature ">
+                    <img src="/Line圖/LINE Antrivirus.png" alt="">
+                    <h5>Line Antivirus</h5>
+                    <p>拉近人與人、人與資訊及應用服務間的距離的通訊軟體</p>
+                </div>
+                <div class="overlay">
+                    <i class="fab fa-apple"><a href=""> App Store</a></i>
+                    <i class="fab fa-google-play"><a href=""> Google Play</a></i>
+                    <i class="fas fa-external-link-alt" aria-hidden="true"><a href=""> 其他詳細資訊</a></i>
+                </div>
             </div>
-            <div class="feature">
-                <img src="/Line圖/item-coupon.png" alt="">
-                <h5>Line社群</h5>
-                <p>拉近人與人、人與資訊及應用服務間的距離的通訊軟體</p>
+
+            <div class="foroverlay">
+                <div class="feature ">
+                    <img src="/Line圖/item-social.png" alt="">
+                    <h5>Line社群</h5>
+                    <p>拉近人與人、人與資訊及應用服務間的距離的通訊軟體</p>
+                </div>
+                <div class="overlay">
+                    <i class="fab fa-apple"><a href=""> App Store</a></i>
+                    <i class="fab fa-google-play"><a href=""> Google Play</a></i>
+                    <i class="fas fa-external-link-alt" aria-hidden="true"><a href=""> 其他詳細資訊</a></i>
+                </div>
             </div>
-            <div class="feature">
-                <img src="/Line圖/item-coupon.png" alt="">
-                <h5>Line TV</h5>
-                <p>拉近人與人、人與資訊及應用服務間的距離的通訊軟體</p>
+
+            <div class="foroverlay">
+                <div class="feature ">
+                    <img src="/Line圖/item-tv.png" alt="">
+                    <h5>Line TV</h5>
+                    <p>拉近人與人、人與資訊及應用服務間的距離的通訊軟體</p>
+                </div>
+                <div class="overlay">
+                    <i class="fab fa-apple"><a href=""> App Store</a></i>
+                    <i class="fab fa-google-play"><a href=""> Google Play</a></i>
+                    <i class="fas fa-external-link-alt" aria-hidden="true"><a href=""> 其他詳細資訊</a></i>
+                </div>
             </div>
-            <div class="feature">
-                <img src="/Line圖/item-coupon.png" alt="">
-                <h5>Line GAME</h5>
-                <p>拉近人與人、人與資訊及應用服務間的距離的通訊軟體</p>
+
+            <div class="foroverlay">
+                <div class="feature">
+                    <img src="/Line圖/item-game.png" alt="">
+                    <h5>Line GAME</h5>
+                    <p>拉近人與人、人與資訊及應用服務間的距離的通訊軟體</p>
+                </div>
+                <div class="overlay">
+                    <i class="fab fa-apple"><a href=""> App Store</a></i>
+                    <i class="fab fa-google-play"><a href=""> Google Play</a></i>
+                    <i class="fas fa-external-link-alt" aria-hidden="true"><a href=""> 其他詳細資訊</a></i>
+                </div>
             </div>
-            <div class="feature">
-                <img src="/Line圖/item-coupon.png" alt="">
-                <h5>Line POD</h5>
-                <p>拉近人與人、人與資訊及應用服務間的距離的通訊軟體</p>
+
+            <div class="foroverlay">
+                <div class="feature ">
+                    <img src="/Line圖/item-pod.png" alt="">
+                    <h5>Line POD</h5>
+                    <p>拉近人與人、人與資訊及應用服務間的距離的通訊軟體</p>
+                </div>
+                <div class="overlay">
+                    <i class="fab fa-apple"><a href=""> App Store</a></i>
+                    <i class="fab fa-google-play"><a href=""> Google Play</a></i>
+                    <i class="fas fa-external-link-alt" aria-hidden="true"><a href=""> 其他詳細資訊</a></i>
+                </div>
             </div>
-            <div class="feature">
-                <img src="/Line圖/item-coupon.png" alt="">
-                <h5>Line MUSIC</h5>
-                <p>拉近人與人、人與資訊及應用服務間的距離的通訊軟體</p>
+
+            <div class="foroverlay">
+                <div class="feature ">
+                    <img src="/Line圖/item-music.png" alt="">
+                    <h5>Line MUSIC</h5>
+                    <p>拉近人與人、人與資訊及應用服務間的距離的通訊軟體</p>
+                </div>
+                <div class="overlay">
+                    <i class="fab fa-apple"><a href=""> App Store</a></i>
+                    <i class="fab fa-google-play"><a href=""> Google Play</a></i>
+                    <i class="fas fa-external-link-alt" aria-hidden="true"><a href=""> 其他詳細資訊</a></i>
+                </div>
             </div>
-            <div class="feature">
-                <img src="/Line圖/item-coupon.png" alt="">
-                <h5>Line WEBTOON 每日漫畫</h5>
-                <p>拉近人與人、人與資訊及應用服務間的距離的通訊軟體</p>
+
+            <div class="foroverlay">
+                <div class="feature ">
+                    <img src="/Line圖/item-webtoon.png" alt="">
+                    <h5>Line WEBTOON 每日漫畫</h5>
+                    <p>拉近人與人、人與資訊及應用服務間的距離的通訊軟體</p>
+                </div>
+                <div class="overlay">
+                    <i class="fab fa-apple"><a href=""> App Store</a></i>
+                    <i class="fab fa-google-play"><a href=""> Google Play</a></i>
+                    <i class="fas fa-external-link-alt" aria-hidden="true"><a href=""> 其他詳細資訊</a></i>
+                </div>
             </div>
-            <div class="feature">
-                <img src="/Line圖/item-coupon.png" alt="">
-                <h5>Line 旅遊</h5>
-                <p>拉近人與人、人與資訊及應用服務間的距離的通訊軟體</p>
+
+            <div class="foroverlay">
+                <div class="feature ">
+                    <img src="/Line圖/item-travel.png" alt="">
+                    <h5>Line 旅遊</h5>
+                    <p>拉近人與人、人與資訊及應用服務間的距離的通訊軟體</p>
+                </div>
+                <div class="overlay">
+                    <i class="fab fa-apple"><a href=""> App Store</a></i>
+                    <i class="fab fa-google-play"><a href=""> Google Play</a></i>
+                    <i class="fas fa-external-link-alt" aria-hidden="true"><a href=""> 其他詳細資訊</a></i>
+                </div>
             </div>
-            <div class="feature">
-                <img src="/Line圖/item-coupon.png" alt="">
-                <h5>Line MOBILE</h5>
-                <p>拉近人與人、人與資訊及應用服務間的距離的通訊軟體</p>
+
+            <div class="foroverlay">
+                <div class="feature ">
+                    <img src="/Line圖/item-mobile.png" alt="">
+                    <h5>Line MOBILE</h5>
+                    <p>拉近人與人、人與資訊及應用服務間的距離的通訊軟體</p>
+                </div>
+                <div class="overlay">
+                    <i class="fab fa-apple"><a href=""> App Store</a></i>
+                    <i class="fab fa-google-play"><a href=""> Google Play</a></i>
+                    <i class="fas fa-external-link-alt" aria-hidden="true"><a href=""> 其他詳細資訊</a></i>
+                </div>
             </div>
-            <div class="feature">
-                <img src="/Line圖/item-coupon.png" alt="">
-                <h5>Line熱點</h5>
-                <p>拉近人與人、人與資訊及應用服務間的距離的通訊軟體</p>
+
+            <div class="foroverlay">
+                <div class="feature">
+                    <img src="/Line圖/item-hotspot.png" alt="">
+                    <h5>Line熱點</h5>
+                    <p>拉近人與人、人與資訊及應用服務間的距離的通訊軟體</p>
+                </div>
+                <div class="overlay">
+                    <i class="fab fa-apple"><a href=""> App Store</a></i>
+                    <i class="fab fa-google-play"><a href=""> Google Play</a></i>
+                    <i class="fas fa-external-link-alt" aria-hidden="true"><a href=""> 其他詳細資訊</a></i>
+                </div>
             </div>
-            <div class="feature">
-                <img src="/Line圖/item-coupon.png" alt="">
-                <h5>Line TAXI</h5>
-                <p>拉近人與人、人與資訊及應用服務間的距離的通訊軟體</p>
+
+            <div class="foroverlay">
+                <div class="feature ">
+                    <img src="/Line圖/item-taxi.png" alt="">
+                    <h5>Line TAXI</h5>
+                    <p>拉近人與人、人與資訊及應用服務間的距離的通訊軟體</p>
+                </div>
+                <div class="overlay">
+                    <i class="fab fa-apple"><a href=""> App Store</a></i>
+                    <i class="fab fa-google-play"><a href=""> Google Play</a></i>
+                    <i class="fas fa-external-link-alt" aria-hidden="true"><a href=""> 其他詳細資訊</a></i>
+                </div>
             </div>
-            <div class="feature">
-                <img src="/Line圖/item-coupon.png" alt="">
-                <h5>Line 購物</h5>
-                <p>拉近人與人、人與資訊及應用服務間的距離的通訊軟體</p>
+
+            <div class="foroverlay">
+                <div class="feature ">
+                    <img src="/Line圖/item-shoop.png" alt="">
+                    <h5>Line 購物</h5>
+                    <p>拉近人與人、人與資訊及應用服務間的距離的通訊軟體</p>
+                </div>
+                <div class="overlay">
+                    <i class="fab fa-apple"><a href=""> App Store</a></i>
+                    <i class="fab fa-google-play"><a href=""> Google Play</a></i>
+                    <i class="fas fa-external-link-alt" aria-hidden="true"><a href=""> 其他詳細資訊</a></i>
+                </div>
             </div>
-            <div class="feature">
-                <img src="/Line圖/item-coupon.png" alt="">
-                <h5>Line 酷券</h5>
-                <p>拉近人與人、人與資訊及應用服務間的距離的通訊軟體</p>
+            
+            <div class="foroverlay">
+                <div class="feature ">
+                    <img src="/Line圖/item-coupon.png" alt="">
+                    <h5>Line 酷券</h5>
+                    <p>拉近人與人、人與資訊及應用服務間的距離的通訊軟體</p>
+                </div>
+                <div class="overlay">
+                    <i class="fab fa-apple"><a href=""> App Store</a></i>
+                    <i class="fab fa-google-play"><a href=""> Google Play</a></i>
+                    <i class="fas fa-external-link-alt" aria-hidden="true"><a href=""> 其他詳細資訊</a></i>
+                </div>
             </div>
-            <div class="feature">
-                <img src="/Line圖/item-coupon.png" alt="">
-                <h5>Line 口袋商店</h5>
-                <p>拉近人與人、人與資訊及應用服務間的距離的通訊軟體</p>
+
+            <div class="foroverlay">
+                <div class="feature ">
+                    <img src="/Line圖/item-pocket.png" alt="">
+                    <h5>Line 口袋商店</h5>
+                    <p>拉近人與人、人與資訊及應用服務間的距離的通訊軟體</p>
+                </div>
+                <div class="overlay">
+                    <i class="fab fa-apple"><a href=""> App Store</a></i>
+                    <i class="fab fa-google-play"><a href=""> Google Play</a></i>
+                    <i class="fas fa-external-link-alt" aria-hidden="true"><a href=""> 其他詳細資訊</a></i>
+                </div>
             </div>
-            <div class="feature">
-                <img src="/Line圖/item-coupon.png" alt="">
-                <h5>Line Frieds</h5>
-                <p>拉近人與人、人與資訊及應用服務間的距離的通訊軟體</p>
+<div class="foroverlay">
+    
+                <div class="feature ">
+                    <img src="/Line圖/item-friend.png" alt="">
+                    <h5>Line Frieds</h5>
+                    <p>拉近人與人、人與資訊及應用服務間的距離的通訊軟體</p>
+                </div>
+                <div class="overlay">
+                    <i class="fab fa-apple"><a href=""> App Store</a></i>
+                    <i class="fab fa-google-play"><a href=""> Google Play</a></i>
+                    <i class="fas fa-external-link-alt" aria-hidden="true"><a href=""> 其他詳細資訊</a></i>
+                </div>
+</div>
+
+            <div class="foroverlay">
+                <div class="feature ">
+                    <img src="/Line圖/item-creater.png" alt="">
+                    <h5>Line 拍貼-Creators Studio</h5>
+                    <p>拉近人與人、人與資訊及應用服務間的距離的通訊軟體</p>
+                </div>
+                <div class="overlay">
+                    <i class="fab fa-apple"><a href=""> App Store</a></i>
+                    <i class="fab fa-google-play"><a href=""> Google Play</a></i>
+                    <i class="fas fa-external-link-alt" aria-hidden="true"><a href=""> 其他詳細資訊</a></i>
+                </div>
             </div>
-            <div class="feature">
-                <img src="/Line圖/item-coupon.png" alt="">
-                <h5>Line 拍貼-Creators Studio</h5>
-                <p>拉近人與人、人與資訊及應用服務間的距離的通訊軟體</p>
+
+            <div class="foroverlay">
+                <div class="feature ">
+                    <img src="/Line圖/item-check.png" alt="">
+                    <h5>Line 訊息查證</h5>
+                    <p>拉近人與人、人與資訊及應用服務間的距離的通訊軟體</p>
+                </div>
+                <div class="overlay">
+                        <i class="fab fa-apple"><a href=""> App Store</a></i>
+                        <i class="fab fa-google-play"><a href=""> Google Play</a></i>
+                        <i class="fas fa-external-link-alt" aria-hidden="true"><a href=""> 其他詳細資訊</a></i>
+                    </div>
             </div>
-            <div class="feature">
-                <img src="/Line圖/item-coupon.png" alt="">
-                <h5>Line 訊息查證</h5>
-                <p>拉近人與人、人與資訊及應用服務間的距離的通訊軟體</p>
+
+            <div class="foroverlay">
+                <div class="feature ">
+                    <img src="/Line圖/item-pay.png" alt="">
+                    <h5>Line Pay</h5>
+                    <p>拉近人與人、人與資訊及應用服務間的距離的通訊軟體</p>
+                </div>
+                <div class="overlay">
+                        <i class="fab fa-apple"><a href=""> App Store</a></i>
+                        <i class="fab fa-google-play"><a href=""> Google Play</a></i>
+                        <i class="fas fa-external-link-alt" aria-hidden="true"><a href=""> 其他詳細資訊</a></i>
+                    </div>
             </div>
-            <div class="feature">
-                <img src="/Line圖/item-coupon.png" alt="">
-                <h5>Line Pay</h5>
-                <p>拉近人與人、人與資訊及應用服務間的距離的通訊軟體</p>
-            </div>
+
 
 
         </div>
