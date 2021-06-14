@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
 
@@ -97,4 +98,105 @@
 </body>
 
 
+=======
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+        integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <title>Document</title>
+    <style>
+
+    </style>
+</head>
+
+<body>
+
+
+    <div class="jumbotron bg-success">
+        <h1 class="text-white text-center">水庫不即時資料</h1>
+    </div>
+    <div class="container">
+
+    </div>
+
+
+    <script>
+        let reservoirTitle = [
+            "項目", "水庫名", "儲量", "剩餘百分比"
+        ];
+        let reservoirData = [
+            { No: 1, name: "明德水庫(苗栗)", capacity: "633.97萬立方公尺", percentage: 51.8 },
+            { No: 2, name: "鯉魚潭水庫(苗栗、台中)", capacity: "2845.56萬立方公尺", percentage: 24.4 },
+            { No: 3, name: "德基水庫(台中)", capacity: "2686.74萬立方公尺", percentage: 14.8 },
+            { No: 4, name: "石岡壩(台中)", capacity: "128.30萬立方公尺", percentage: 85.8 },
+            { No: 5, name: "日月潭水庫(南投)", capacity: "7038.04萬立方公尺", percentage: 54.3 },
+            { No: 6, name: "霧社水庫(南投)", capacity: "2070.89萬立方公尺", percentage: 55.6 },
+        ];
+
+
+        let container = document.getElementsByClassName("container")[0];
+        let table = document.createElement("table");
+        let thead = document.createElement("thead");
+        let tbody = document.createElement("tbody");
+
+        table.setAttribute("class", "table table-bordered table-striped table-success");
+
+        window.onload = function () {
+            createTable(reservoirTitle, reservoirData);
+            container.appendChild(table);
+
+        };
+
+        function createTable(reservoirTitle, reservoirData) {
+            AddTitle(thead, reservoirTitle);
+            //tbody
+            reservoirData.forEach(x => {
+                let value = Object.values(x);
+                console.log(value);
+                AddData(tbody, value);
+            });
+
+        };
+
+        function AddTitle(t, rowData) {
+            let tr = document.createElement("tr");
+            rowData.forEach(x => {
+                let td = document.createElement("td");
+                tr.appendChild(td);
+                t.appendChild(tr);
+
+                td.innerText = x;
+            });
+            table.appendChild(t);
+        };
+
+        function AddData(t, rowData) {
+            let tr = document.createElement("tr");
+            rowData.forEach(x => {
+                let td = document.createElement("td");
+                tr.appendChild(td);
+                t.appendChild(tr);
+
+                td.innerText = x;
+
+                // x.forEach(y=>{
+                //     console.log(y);
+                // })
+
+                // console.log(x);
+            });
+            table.appendChild(t);
+        };
+
+
+    </script>
+</body>
+
+
+>>>>>>> d1378e75b6bdbc6120363c1b1cfd0f1013a36493
 </html>
