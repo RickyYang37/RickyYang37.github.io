@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang='en'>
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset='utf-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <!-- Bootstrap CSS -->
+    <link href='https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css' rel='stylesheet'
+        integrity='sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x' crossorigin='anonymous'>
+    <title>Guess What!</title>
+    <style>
+        .guessArea {
+            width: 90%;
+            height: 400px;
+            margin: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="btn-group col-12 d-block text-center mt-4" role="group" aria-label="Basic example">
+        <button type="button" class="btn btn-light">開始</button>
+        <button type="button" class="btn btn-dark">我很爛!放棄重來</button>
+        <button type="button" class="btn btn-danger">偷看答案</button>
+    </div>
+
+    <div class="guessArea border border-primary mt-4"></div>
+
+    <div class="answer d-block text-center mt-4">
+        <span>猜猜</span>
+        <input type="text">
+        <button class="btn-outline-info">答案確定</button>
+    </div>
+
+
+
+    <script src='https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js'
+        integrity='sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4'
+        crossorigin='anonymous'></script>
+
+
+    <script>
+        let startGame = document.getElementsByTagName("button")[0];
+        let resetGame = document.getElementsByTagName("button")[1];
+        let giveUpGame = document.getElementsByTagName("button")[2];
+        let guessArea = document.getElementsByClassName("guessArea")[0];
+        let inputBox = document.getElementsByTagName("input")[0];
+        let confirmTheNumber = document.getElementsByTagName("button")[3];
+
+        window.onload = function () {
+            confirmTheNumber.disabled = true;
+
+        }
+        //取得四個不重複的數字
+        let result = [];
+        startGame.onclick = myFunction;
+        function myFunction() {
+            result = [];
+            inputBox.value = "";
+            confirmTheNumber.disabled = false;
+            guessArea.innerHTML = "";
+            var arr = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];//原有陣列放全部數字
+
+            var ranNum = 4;
+
+            for (var i = 0; i < ranNum; i++) {
+                var ran = Math.floor(Math.random() * arr.length);
+                result.push(arr.splice(ran, 1)[0]); //舊陣列去除數字轉移到新陣列
+            };
+            console.log(result);
+
+        }
+
+        //reset放棄重來
+        resetGame.onclick = function () {
+            guessArea.innerHTML = "";
+            inputBox.value = "";
+            alert(result);
+            myFunction();
+        }
+        //偷看答案
+        giveUpGame.onclick = function () {
+            alert(result);
+        }
+
+        //答案確定
+        confirmTheNumber.onclick = function () {
+            let arrayAns = Array.from(inputBox.value);//陣列化 輸入的字串
+            let intArrayAns = arrayAns.map(x => Number(x));//數字化陣列
+
+            console.log(arrayAns);
+            console.log(intArrayAns);
+
+
+            //幾A幾B
+            let ans = result;
+            let guess = intArrayAns;
+
+            let x = ans.filter(x => guess.includes(x));
+            // console.log(x);
+
+            let b = x.length;
+
+            let a = x.filter(x => ans.indexOf(x) == guess.indexOf(x)).length;
+            b = b - a;
+            console.log(`${a}A,${b}B`);
+
+
+
+            //創建遊戲歷程裡面的
+            let areaHistory = document.createElement("div");
+            areaHistory.setAttribute("class", "processGuess")
+            let h2 = document.createElement("h2");
+            let span = document.createElement("span");
+            span.innerText = `${a}A,${b}B`;
+            // span.setAttribute("class","badge bg-danger me-3")
+            console.log(span);
+
+            // h2.appendChild(span);
+            // h2.innerHTML += inputBox.value;
+            // areaHistory.appendChild(h2);
+            // guessArea.appendChild(areaHistory);
+            
+            //如果4A 全對
+            if (a == 4) {
+                alert("好棒棒!!");
+                span.setAttribute("class", "badge bg-success me-3");
+                h2.appendChild(span);
+                h2.innerHTML += inputBox.value;
+                areaHistory.appendChild(h2);
+                guessArea.appendChild(areaHistory);
+            }
+            else {
+                span.setAttribute("class", "badge bg-danger me-3");
+                h2.appendChild(span);
+                h2.innerHTML += inputBox.value;
+                areaHistory.appendChild(h2);
+                guessArea.appendChild(areaHistory);
+            }
+            inputBox.value = "";
+        };
+
+
+
+    // <h2> <span class="badge bg-danger me-3">幾A幾B</span>輸入的數字</h2>
+    </script>
+</body>
+
+</html>

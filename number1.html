@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang='en'>
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset='utf-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <!-- Bootstrap CSS -->
+    <link href='https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css' rel='stylesheet'
+        integrity='sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x' crossorigin='anonymous'>
+    <title>終極密碼</title>
+</head>
+<style>
+
+</style>
+
+<body>
+    <div class="container-fluid bg-light text-danger mb-5">
+        <div class="container bg-light p-5">
+            <h1 class="text-center">終極密碼 0~100</h1>
+        </div>
+    </div>
+
+    <button id="getNumber" type="button" class="btn btn-primary d-block m-auto">產生數字</button>
+    <label for="" class="d-flex justify-content-center mt-4">輸入數字<input type="text"></label>
+
+    <div class="d-flex justify-content-center ">
+        <button class="btn btn-dark m-1" type="button">1</button>
+        <button class="btn btn-dark m-1" type="button">2</button>
+        <button class="btn btn-dark m-1" type="button">3</button>
+    </div>
+    <div class="d-flex justify-content-center ">
+        <button class="btn btn-dark m-1" type="button">4</button>
+        <button class="btn btn-dark m-1" type="button">5</button>
+        <button class="btn btn-dark m-1" type="button">6</button>
+    </div>
+    <div class="d-flex justify-content-center ">
+        <button class="btn btn-dark m-1" type="button">7</button>
+        <button class="btn btn-dark m-1" type="button">8</button>
+        <button class="btn btn-dark m-1" type="button">9</button>
+    </div>
+    <div class="d-flex justify-content-center ">
+        <button id="clear" class="btn btn-dark m-1 text-danger" type="button">X</button>
+        <button class="btn btn-dark m-1" type="button">0</button>
+        <button id="judge" class="btn btn-dark m-1 text-success" type="button">V</button>
+    </div>
+
+
+
+
+    <script src='https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js'
+        integrity='sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4'
+        crossorigin='anonymous'></script>
+
+    <script>
+
+        //取得亂數
+        let getNumber = document.getElementById("getNumber");
+        let theNumber;
+        getNumber.onclick = function (x) {
+            theNumber = Math.floor(Math.random() * 100) + 1
+            console.log(theNumber);
+            getNumber.disabled = true;
+        };
+
+        //按鈕數字
+        let allBtn = document.querySelectorAll(".btn.m-1").forEach(function (btn) {
+            console.log(btn)
+            btn.onclick = function () {
+                inputBox.value += btn.innerText;
+            }
+        });
+        
+
+        //V判斷
+        let judge = document.getElementById("judge");
+        let higherGuessNum = "100";
+        let lowerGuessNum = "0";
+        judge.onclick = function () {
+            //猜對時
+            if (theNumber.toString() == inputBox.value) {
+                alert("U get it!!");
+                getNumber.disabled = false;
+                h1.textContent = "終極密碼 0~100";
+                let higherGuessNum = "100";
+                let lowerGuessNum = "0";
+                // console.log("u");
+            }
+            //判斷區間
+            else if (inputBox.value < theNumber) {
+                h1.textContent = `終極密碼 ${inputBox.value}~${higherGuessNum}`;
+                lowerGuessNum = inputBox.value;
+            }
+            else {
+                h1.textContent = `終極密碼 ${lowerGuessNum}~${inputBox.value}`;
+                higherGuessNum = inputBox.value;
+            }
+            inputBox.value = "";
+
+        }
+
+        let inputBox = document.getElementsByTagName("input")[0];
+        let h1 = document.getElementsByTagName("h1")[0];
+        //清除
+        let clear = document.getElementById("clear");
+        clear.onclick = function (x) {
+            inputBox.value = "";
+            h1.innerHTML = "<h1>終極密碼 0~100</h1>";
+            getNumber.disabled = false;
+            higherGuessNum = "100";
+            lowerGuessNum = "0";
+        };
+
+    </script>
+</body>
+
+</html>
