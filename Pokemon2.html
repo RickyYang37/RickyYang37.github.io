@@ -18,11 +18,10 @@
         }
     </style>
 </head>
-    
+
 <body>
-    
     <h1 class="text-center">Hello, 童年!</h1>
-    <p class="text-center">減減還沒搞定</p>
+
     <div class="container-fluid">
         <div class="banner col-9 m-auto">
             <img src="https://tw.portal-pokemon.com/play/resources/pokedex/img/pm/2fd12098f15628cce80d411e090189aeb7d758ff.png"
@@ -55,9 +54,28 @@
 
         let content = document.getElementsByClassName("content")[0];
 
-        //++
+
         let file = "";
         let i = "1";
+
+        // window.onload = imgOnclick;
+
+        //點到移除 img.onclick在for裡沒生效? 還是圖不同張? console沒報錯
+        // function imgOnclick() {
+        //     for (let k = 1; k <= 4; k++) {
+        //         file = i.toString().padStart(3, "0");
+        //         i++;
+        //         let img = document.createElement("img");
+        //         img.setAttribute("src", `https://assets.pokemon.com/assets/cms2/img/pokedex/detail/${file}.png`)
+        //         console.log(img);
+        //         console.log(typeof (img));
+        //         // content.appendChild(img);
+
+        //     }
+        //     i = 1;
+        // }
+
+        //++
         add.onclick = function () {
             file = i.toString().padStart(3, "0");
             // let path = `<img src=https://assets.pokemon.com/assets/cms2/img/pokedex/detail/${file}.png>`;
@@ -67,19 +85,20 @@
             img.setAttribute("src", `https://assets.pokemon.com/assets/cms2/img/pokedex/detail/${file}.png`)
             // img.setAttribute("src", "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/444.png")
             content.appendChild(img);
+            //點到移除
+            img.onclick=function(){
+                content.removeChild(img);
+            }
         }
 
         //--
         minus.onclick = function (x) {
             //取得目前是第幾個? 把它減掉
-            //按下之後004刪掉
+            //按下之後刪掉
             // let pa = `<img src=https://assets.pokemon.com/assets/cms2/img/pokedex/detail/001.png>`;
             let current = content.childNodes.length;
-            console.log(current);
-            console.log(content.childNodes);
-            // content.
-            // console.log(x)
-            content.removeChild(content.childNodes[length]);
+
+            content.removeChild(content.childNodes[current - 1]);
         }
 
         // reset
@@ -87,34 +106,58 @@
             content.innerHTML = "";
             i = "1";
             clearInterval(getPoke);
-            loadTime.disabled=false;
-            
+            loadTime.disabled = false;
+
         }
 
-        let getPoke ;
+        let getPoke;
         //時間++    
         loadTime.addEventListener("click", function () {
             getPoke = setInterval(loadPoke, 500)
-            loadTime.disabled=true;
-            
+            loadTime.disabled = true;
+
         })
 
         //時間暫停
         timeStop.addEventListener("click", function () {
             clearInterval(getPoke);
-            loadTime.disabled=false;
+            loadTime.disabled = false;
         })
 
-        
+
         function loadPoke() {
             file = i.toString().padStart(3, "0");
             i++;
             let img = document.createElement("img");
             img.setAttribute("src", `https://assets.pokemon.com/assets/cms2/img/pokedex/detail/${file}.png`)
-            
+
             content.appendChild(img);
 
+            //點到移除
+            img.onclick=function(){
+                content.removeChild(img);
+            }
         }
+
+        // window.onload = imgOnclick;
+
+
+        // function imgOnclick() {
+        //     for (let k = 1; k <= 4; k++) {
+        //         file = i.toString().padStart(3, "0");
+        //         i++;
+        //         let img = document.createElement("img");
+        //         img.setAttribute("src", `https://assets.pokemon.com/assets/cms2/img/pokedex/detail/${file}.png`)
+        //         console.log(img);
+        //         console.log(typeof(img));
+        //         // content.appendChild(img);
+        //         img.onclick=function(){
+        //             alert("QQ");
+        //         }
+
+        //     }
+        //     i = 1;
+        // }
 
     </script>
 </body>
