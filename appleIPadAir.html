@@ -1,0 +1,335 @@
+<!doctype html>
+<html lang='en'>
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset='utf-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <!-- Bootstrap CSS -->
+    <link href='https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css' rel='stylesheet'
+        integrity='sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x' crossorigin='anonymous'>
+    <title>Put your IPad up in the air!</title>
+</head>
+
+<body>
+
+    <div class="container mt-5 w-75">
+        <div class="row">
+            <div class="col-12 col-md-6 pic"></div>
+            <div class="col-12 col-md-6 info">
+
+            
+
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <script src='https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js'
+        integrity='sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4'
+        crossorigin='anonymous'></script>
+
+    <script>
+
+        let pic = document.getElementsByClassName("pic")[0];
+        let info = document.getElementsByClassName("info")[0];
+
+        let ipadAirData = [
+            { color: "all", url: "/apple/ipad-air-select-202009.jpg" },
+            { color: "gold", url: "/apple/ipad-air-select-cell-gold-202009.png", colorImg: "/apple/finish-gold.jpg" },
+            { color: "green", url: "/apple/ipad-air-select-cell-green-202009.png", colorImg: "/apple/finish-green.png" },
+            { color: "silver", url: "/apple/ipad-air-select-cell-silver-202009.png", colorImg: "/apple/finish-silver.png" },
+            { color: "spacegray", url: "/apple/ipad-air-select-cell-spacegray-202009.png", colorImg: "/apple/finish-spacegray.png" },
+            { color: "blue", url: "/apple/ipad-air-select-cell-blue-202009.png", colorImg: "/apple/finish-blue.png" },
+            { storage: ["64GB", "256GB"] },
+            { WiFi: ["Wi-Fi", "Wi-Fi+行動網路"] },
+            { price: [18900, 23900, 23200, 28200] }
+        ]
+        let forShow$;
+        //創造工廠
+        function createEle(ele) {
+            let element = document.createElement(ele);
+            return element;
+        }
+
+        //創造+文字
+        function createEleText(ele, text) {
+            let element = document.createElement(ele);
+            element.innerHTML = text;
+            return element;
+        }
+        //左邊pic
+        let img = document.createElement("img");
+        img.setAttribute("src", ipadAirData[0].url);
+        img.setAttribute("class", "img-fluid");
+        pic.appendChild(img);
+        //右邊info
+        let h3 = createEle("h3");
+        h3.innerHTML = "購買 iPad Air";
+        info.appendChild(h3);
+        let pOutlook = createEleText("p", "外觀");
+        pOutlook.setAttribute("class", "me-auto");
+        //外觀區div
+        let divOutlookTitle = createEle("div");
+        divOutlookTitle.setAttribute("class", "d-flex");
+        divOutlookTitle.appendChild(pOutlook);
+        info.appendChild(divOutlookTitle);
+        //collapse區
+        let collapseBtn = createEleText("button", "更改");
+        // collapseBtn.insertBefore(spanOutlook);data-bs-toggle="collapse" data-bs-target="#collapseExample"
+        collapseBtn.setAttribute("class", "btn text-primary bg-white border-0 d-none");
+        collapseBtn.setAttribute("data-bs-toggle", "collapse");
+        collapseBtn.setAttribute("data-bs-target", "#colorToggle");
+        collapseBtn.addEventListener("click", function () {
+            collapseBtn.classList.add("d-none")
+        })
+        divOutlookTitle.appendChild(collapseBtn);
+        info.appendChild(divOutlookTitle);
+        //創造顏色區按鈕
+        let colorBtn = createEle("button");
+        colorBtn.setAttribute("class", "border border-dark rounded-pill p-4 col-5 m-auto bg-white")
+        colorBtn.setAttribute("data-bs-toggle", "collapse");
+        colorBtn.setAttribute("data-bs-target", "#colorToggle");
+        let colorBtn2 = createEle("button");
+        colorBtn2.setAttribute("class", "border border-dark rounded-pill p-4 col-5 m-auto bg-white")
+        colorBtn2.setAttribute("data-bs-toggle", "collapse");
+        colorBtn2.setAttribute("data-bs-target", "#colorToggle");
+        let colorBtn3 = createEle("button");
+        colorBtn3.setAttribute("class", "border border-dark rounded-pill p-4 col-5 m-auto bg-white")
+        colorBtn3.setAttribute("data-bs-toggle", "collapse");
+        colorBtn3.setAttribute("data-bs-target", "#colorToggle");
+        let colorBtn4 = createEle("button");
+        colorBtn4.setAttribute("class", "border border-dark rounded-pill p-4 col-5 m-auto bg-white")
+        colorBtn4.setAttribute("data-bs-toggle", "collapse");
+        colorBtn4.setAttribute("data-bs-target", "#colorToggle");
+        let colorBtn5 = createEle("button");
+        colorBtn5.setAttribute("class", "border border-dark rounded-pill p-4 col-5 m-auto bg-white")
+        colorBtn5.setAttribute("data-bs-toggle", "collapse");
+        colorBtn5.setAttribute("data-bs-target", "#colorToggle");
+        //所有colorBtn按下換圖事件
+        colorBtn.addEventListener("click", function () {
+            pic.innerHTML = "";
+            let img = createEle("img");
+            img.setAttribute("src", ipadAirData[4].url)
+            pic.appendChild(img);
+            collapseBtn.classList.remove("d-none");
+        })
+        colorBtn2.addEventListener("click", function () {
+            pic.innerHTML = "";
+            let img = createEle("img");
+            img.setAttribute("src", ipadAirData[3].url)
+            pic.appendChild(img);
+            collapseBtn.classList.remove("d-none");
+        })
+        colorBtn3.addEventListener("click", function () {
+            pic.innerHTML = "";
+            let img = createEle("img");
+            img.setAttribute("src", ipadAirData[1].url)
+            pic.appendChild(img);
+            collapseBtn.classList.remove("d-none");
+        })
+        colorBtn4.addEventListener("click", function () {
+            pic.innerHTML = "";
+            let img = createEle("img");
+            img.setAttribute("src", ipadAirData[2].url)
+            pic.appendChild(img);
+            collapseBtn.classList.remove("d-none");
+        })
+        colorBtn5.addEventListener("click", function () {
+            pic.innerHTML = "";
+            let img = createEle("img");
+            img.setAttribute("src", ipadAirData[5].url)
+            pic.appendChild(img);
+            collapseBtn.classList.remove("d-none");
+        })
+        //外觀區顏色大的div
+        let divOutlookColor = createEle("div");
+        divOutlookColor.setAttribute("class", "collapse show ");
+        divOutlookColor.setAttribute("id", "colorToggle");
+        divOutlookColor.appendChild(colorBtn);
+        divOutlookColor.appendChild(colorBtn2);
+        divOutlookColor.appendChild(colorBtn3);
+        divOutlookColor.appendChild(colorBtn4);
+        divOutlookColor.appendChild(colorBtn5);
+        info.appendChild(divOutlookColor);
+        //外觀區的每個顏色
+        let imgColor = createEle("img");
+        imgColor.setAttribute("style", "width:35px;display:block;margin:auto;margin-bottom:10px");
+        imgColor.setAttribute("src", ipadAirData[4].colorImg);
+        colorBtn.appendChild(imgColor);//跟下面一行的順序不能顛倒
+        colorBtn.innerHTML += "太空灰色";
+        let imgColor2 = createEle("img");
+        imgColor2.setAttribute("style", "width:35px;display:block;margin:auto;margin-bottom:10px");
+        imgColor2.setAttribute("src", ipadAirData[3].colorImg);
+        colorBtn2.appendChild(imgColor2);//跟下面一行的順序不能顛倒
+        colorBtn2.innerHTML += "銀色";
+        let imgColor3 = createEle("img");
+        imgColor3.setAttribute("style", "width:35px;display:block;margin:auto;margin-bottom:10px");
+        imgColor3.setAttribute("src", ipadAirData[1].colorImg);
+        colorBtn3.appendChild(imgColor3);//跟下面一行的順序不能顛倒
+        colorBtn3.innerHTML += "玫瑰金色";
+        let imgColor4 = createEle("img");
+        imgColor4.setAttribute("style", "width:35px;display:block;margin:auto;margin-bottom:10px");
+        imgColor4.setAttribute("src", ipadAirData[2].colorImg);
+        colorBtn4.appendChild(imgColor4);//跟下面一行的順序不能顛倒
+        colorBtn4.innerHTML += "綠色";
+        let imgColor5 = createEle("img");
+        imgColor5.setAttribute("style", "width:35px;display:block;margin:auto;margin-bottom:10px");
+        imgColor5.setAttribute("src", ipadAirData[5].colorImg);
+        colorBtn5.appendChild(imgColor5);//跟下面一行的順序不能顛倒
+        colorBtn5.innerHTML += "藍色";
+        let hr = createEle("hr");
+        info.appendChild(hr);
+
+        //容量區開始
+        //右邊info
+        let pStorage = createEleText("p", "容量");
+        pStorage.setAttribute("class", "me-auto");
+        //容量div
+        let divStorageTitle = createEle("div");
+        divStorageTitle.setAttribute("class", "d-flex");
+        divStorageTitle.appendChild(pStorage);
+        info.appendChild(divStorageTitle);
+        //collapse區
+        let collapseBtn2 = createEleText("button", "更改");
+        collapseBtn2.setAttribute("data-bs-toggle", "collapse");
+        collapseBtn2.setAttribute("data-bs-target", "#storageToggle");
+        // collapseBtn.insertBefore(spanOutlook);
+        collapseBtn2.setAttribute("class", "text-primary bg-white border-0 d-none");
+        divStorageTitle.appendChild(collapseBtn2);
+        info.appendChild(divStorageTitle);
+        collapseBtn2.addEventListener("click", function () {
+            collapseBtn2.classList.add("d-none")
+        })
+        //創造容量區按鈕+塞資料
+        let storageBtn = createEle("button");
+        storageBtn.setAttribute("class", "border border-dark rounded-pill p-4 col-5 m-auto bg-white")
+        storageBtn.setAttribute("data-bs-toggle", "collapse");
+        storageBtn.setAttribute("data-bs-target", "#storageToggle");
+        let storageBtn2 = createEle("button");
+        storageBtn2.setAttribute("data-bs-toggle", "collapse");
+        storageBtn2.setAttribute("data-bs-target", "#storageToggle");
+        storageBtn2.setAttribute("class", "border border-dark rounded-pill p-4 col-5 m-auto bg-white")
+        storageBtn.innerHTML = ipadAirData[6].storage[0] + "<br>NT " + ipadAirData[8].price[0] + " 起";
+        storageBtn2.innerHTML = ipadAirData[6].storage[1] + "<br>NT " + ipadAirData[8].price[1] + " 起";
+        //所有容量按鈕事件
+        storageBtn.addEventListener("click", function () {
+            forShow$ = ipadAirData[8].price[0];
+            WiFiBtn.innerHTML = ipadAirData[7].WiFi[0] + "<br>NT " + ipadAirData[8].price[0] + " 起";
+            WiFiBtn2.innerHTML = ipadAirData[7].WiFi[1] + "<br>NT " + ipadAirData[8].price[2] + " 起";
+            show$();
+            console.log(forShow$);
+            collapseBtn2.classList.remove("d-none");
+        })
+        storageBtn2.addEventListener("click", function () {
+            forShow$ = ipadAirData[8].price[1];
+            WiFiBtn.innerHTML = ipadAirData[7].WiFi[0] + "<br>NT " + ipadAirData[8].price[1] + " 起";
+            WiFiBtn2.innerHTML = ipadAirData[7].WiFi[1] + "<br>NT " + ipadAirData[8].price[3] + " 起";
+            show$();
+            console.log(forShow$);
+            collapseBtn2.classList.remove("d-none");
+        })
+        //容量區大的div
+        let divStorage = createEle("div");
+        divStorage.setAttribute("class", "collapse show");
+        divStorage.setAttribute("id", "storageToggle");
+        divStorage.appendChild(storageBtn);
+        divStorage.appendChild(storageBtn2);
+        info.appendChild(divStorage);
+        let hr2 = createEle("hr");
+        info.appendChild(hr2);
+
+        //連線能力區開始
+        //右邊info
+        let pWiFi = createEleText("p", "連線能力");
+        pWiFi.setAttribute("class", "me-auto");
+        //容量div
+        let divWiFiTitle = createEle("div");
+        divWiFiTitle.setAttribute("class", "d-flex");
+        divWiFiTitle.appendChild(pWiFi);
+        info.appendChild(divWiFiTitle);
+        //collapse區
+        let collapseBtn3 = createEleText("button", "更改");
+        // collapseBtn.insertBefore(spanOutlook);
+        collapseBtn3.setAttribute("class", "text-primary bg-white border-0 d-none");
+        collapseBtn3.setAttribute("data-bs-toggle", "collapse");
+        collapseBtn3.setAttribute("data-bs-target", "#WiFiToggle");
+        divWiFiTitle.appendChild(collapseBtn3);
+        info.appendChild(divWiFiTitle);
+        collapseBtn3.addEventListener("click", function () {
+            collapseBtn3.classList.add("d-none")
+        })
+        //創造連線能力區按鈕+塞資料
+        let WiFiBtn = createEle("button");
+        WiFiBtn.setAttribute("class", "border border-dark rounded-pill p-4 col-5 m-auto bg-white")
+        WiFiBtn.setAttribute("data-bs-toggle", "collapse");
+        WiFiBtn.setAttribute("data-bs-target", "#WiFiToggle");
+        let WiFiBtn2 = createEle("button");
+        WiFiBtn2.setAttribute("class", "border border-dark rounded-pill p-4 col-5 m-auto bg-white")
+        WiFiBtn2.setAttribute("data-bs-toggle", "collapse");
+        WiFiBtn2.setAttribute("data-bs-target", "#WiFiToggle");
+        WiFiBtn.innerHTML = ipadAirData[7].WiFi[0];
+        WiFiBtn2.innerHTML = ipadAirData[7].WiFi[1];
+        //所有連線能力按鈕事件
+        WiFiBtn.addEventListener("click", function () {
+            if (this.innerHTML.includes(18900)) {
+                forShow$ = ipadAirData[8].price[0];
+                show$();
+            }
+            if (this.innerHTML.includes(23900)) {
+                forShow$ = ipadAirData[8].price[1];
+                show$();
+            }
+            collapseBtn3.classList.remove("d-none");
+        })
+        WiFiBtn2.addEventListener("click", function () {
+            if (this.innerHTML.includes(23200)) {
+                forShow$ = ipadAirData[8].price[2];
+                show$();
+            }
+            if (this.innerHTML.includes(28200)) {
+                forShow$ = ipadAirData[8].price[3];
+                show$();
+            }
+            collapseBtn3.classList.remove("d-none");
+        })
+        //連線能力區大的div
+        let divWiFi = createEle("div");
+        divWiFi.setAttribute("class", "collapse show");
+        divWiFi.setAttribute("id", "WiFiToggle");
+        divWiFi.appendChild(WiFiBtn);
+        divWiFi.appendChild(WiFiBtn2);
+        info.appendChild(divWiFi);
+        let hr3 = createEle("hr");
+        info.appendChild(hr3);
+
+        //算$囉
+        let pResult = createEle("p");
+        pResult.setAttribute("class", "fs-2")
+        info.appendChild(pResult);
+        function show$() {
+            // if(pStorage.innerHTML!=="容量"&&pWiFi.innerHTML!=="連線能力"){
+            //     pResult.innerHTML=forShow$;
+            // }
+            if (pStorage.innerHTML == "容量") {
+                pResult.innerHTML = "NT " + forShow$;
+                // alert("QQ")
+            }
+        }
+
+        // <button class="btn btn-primary" data-bs-toggle="collapse" data-bs-target="#collapseExample">
+        //    Button with data-bs-target
+        // </button>
+
+        //     <div class="collapse" id="collapseExample">
+        //          <div class="card card-body">
+        //           Some placeholder content for the collapse component. This panel is hidden by default but
+        //           revealed when the user activates the relevant trigger.
+        //          </div>
+        //     </div>
+    </script>
+</body>
+
+</html>

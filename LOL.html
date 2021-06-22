@@ -1,0 +1,269 @@
+<!doctype html>
+<html lang='en'>
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset='utf-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <!-- Bootstrap CSS -->
+    <link href='https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css' rel='stylesheet'
+        integrity='sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x' crossorigin='anonymous'>
+    <title>HelLOL!</title>
+    <style>
+        .jumbotron {
+            padding: 40px;
+        }
+
+        .card {
+            border: 1px solid black;
+            margin-bottom: 30px;
+            overflow: hidden;
+        }
+
+        .card-title {
+            color: white;
+            background-color: black;
+            display: inline-block;
+            border-radius: 5px;
+            padding: 5px 15px 5px 15px;
+        }
+
+        .card-body {
+            background-color: #ffbf67;
+        }
+
+        .card:hover {
+            box-shadow: 8px 8px 15px #808080;
+            transform: translate(5px, 5px);
+        }
+
+        .card:hover img {
+            transform: scale(1.2);
+            transition: transform 0.5s;
+        }
+
+        .card:not(:hover) img {
+            transform: scale(1, 1);
+            transition: transform 0.3s;
+        }
+
+        .card:hover .card-body {
+            background-color: lightgreen !important;
+        }
+
+        .card:hover .card-title {
+            color: black;
+            background-color: white !important;
+        }
+    </style>
+</head>
+
+<body>
+    <div class='container-fluid'>
+        <div class='jumbotron bg-info'>
+            <h1 class="text-center">英雄聯盟圖鑑</h1>
+        </div>
+        <button>Load Heroes</button>
+        <div class="row">
+
+        </div>
+    </div>
+
+
+    <!-- card -->
+    <template id='cardLOL'>
+        <div class="card" style="width: 20%;">
+            <img src="" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title"></h5>
+                <p class="card-text" style="height: 40%;"></p>
+                <a href="#" class="btn btn-primary d-block ">英雄素質</a>
+                <a href="#" class="btn btn-danger d-block">影片介紹</a>
+            </div>
+        </div>
+    </template>
+
+
+    <!-- Modal 5.0.1-->
+    <!-- <a href="#" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">QQ</a> -->
+
+    <!-- Modal  英雄介紹5.0.1-->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <img src="" alt="" id="heroesImage">
+                    <p id="description"></p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal  影片介紹5.0.1-->
+    <div class="modal fade" id="video" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <iframe width="100%" height="400" src="https://www.youtube.com/embed/pK4VLNk7uBc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <!-- <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script> -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script> -->
+    <script src='https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js'
+        integrity='sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4'
+        crossorigin='anonymous'></script>
+
+    <script>
+        window.onload = () => {
+            getLOLJson();
+            document.querySelector("button").addEventListener("click", showHeroes);
+            // heroModal();
+        }
+        // let url;
+        //抓取英雄卡的按鈕
+        let fetch = document.querySelector("button");
+        fetch.setAttribute("class", "d-block mx-auto my-4 btn btn-info")
+        // function fetchHTML() {
+        //     url = $g("input").value;
+
+        //     fetch(url)
+        //         .then(response => response.text())
+        //         .then(result => {
+        //             $g("body").innerHTML = result;
+        //         })
+        //         .catch(ex => {
+        //             $g("body").innerHTML = ex;
+
+        //         })
+        //         .finally(() => {
+
+        //         })
+
+        // }
+
+        //抓取GitHub上的JSON
+        const LOLJsonUrl = "https://raw.githubusercontent.com/RickyYang37/FileStaorage/main/LOL.json";
+        let LOLJson, heroesName, heroesData;
+        let xhr = new XMLHttpRequest();
+
+        function getLOLJson() {
+            xhr.open("GET", LOLJsonUrl);
+            xhr.send();
+
+            xhr.onload = function () {
+                LOLJson = JSON.parse(this.responseText);
+                heroesName = Object.keys(LOLJson.data);//為啥用這又變陣列
+                heroesData = Object.values(LOLJson.data);//...
+                // console.log(LOLJson);
+                // console.log(heroesName);
+                // console.log(typeof (LOLJson));
+                // console.log(Array.isArray(heroesName));
+
+            }
+        }
+
+        let row = document.getElementsByClassName("row")[0];
+        let card = document.getElementById("cardLOL");
+        //JSON資料用Template做card
+        function showHeroes() {
+            //一鍵清除
+            row.innerHTML = "";
+            console.log(heroesData);
+            heroesName.forEach(function (item, index) {
+                // console.log(item);
+                let cloneContent = card.content.cloneNode(true);
+                cloneContent.querySelector("h5").innerText = item;
+                cloneContent.querySelector("p").innerText = heroesData[index].blurb.substring(0, 40) + "....";
+                cloneContent.querySelector("img").src = `https://ddragon.leagueoflegends.com/cdn/img/champion/splash/${item}_1.jpg`;
+                cloneContent.querySelector("img").setAttribute("class", "img-fluid")
+                //英雄介紹
+                cloneContent.querySelector(".btn-primary").setAttribute("data-bs-toggle", "modal");
+                cloneContent.querySelector(".btn-primary").setAttribute("data-bs-target", "#exampleModal");
+                //影片介紹
+                cloneContent.querySelector(".btn-danger").setAttribute("data-bs-toggle", "modal");
+                cloneContent.querySelector(".btn-danger").setAttribute("data-bs-target", "#video");
+
+                cloneContent.querySelector(".btn-primary").addEventListener("click", function () {
+                    // alert(item);
+                    // console.log(this);
+
+                    // this.setAttribute("type", "button");
+                    let modal = document.querySelector("#exampleModal");
+                    modal.querySelector("h5").innerText = heroesData[index].name;
+                    modal.querySelector("#heroesImage").src = `https://ddragon.leagueoflegends.com/cdn/img/champion/splash/${item}_0.jpg`;
+                    modal.querySelector("#heroesImage").setAttribute("class", "img-fluid");
+                    modal.querySelector("#description").innerHTML = `hp: ${heroesData[index].stats.hp}<br> 
+                    move speed: ${heroesData[index].stats.movespeed} <br>
+                    armour: ${heroesData[index].stats.armor}<br>
+                    spellblock: ${heroesData[index].stats.spellblock}<br>
+                    attackrange: ${heroesData[index].stats.attackrange}<br>
+                    `;
+                });
+
+                //modalVideo
+                cloneContent.querySelector(".btn-danger").addEventListener("click", function () {
+                    let modalVideo = document.querySelector("#video");
+                    // this.classList.add("d-block");
+                    this.classList.add("ms-auto");
+                    console.log(modalVideo)
+                    console.log(this)
+                    modalVideo.querySelector("h5").innerText = heroesData[index].name;
+                    // modalVideo.querySelector("iframe").src = "https://www.youtube.com/watch?v=wNNQRmx1qhM&ab_channel=Garena%E8%8B%B1%E9%9B%84%E8%81%AF%E7%9B%9FGarena%E8%8B%B1%E9%9B%84%E8%81%AF%E7%9B%9F%E5%B7%B2%E9%A9%97%E8%AD%89"
+
+                })
+                // cloneContent.querySelector(".btn-primary").addEventListener("click", heroModal(cloneContent))
+                // heroModal(cloneContent);
+                // console.log(heroModal(cloneContent))
+                // console.log(this);
+                // console.log(typeof (cloneContent));
+
+                row.append(cloneContent);
+            });
+        }
+
+        //modal
+        // function heroModal(x) {
+        //     // alert(item);
+        //         x.querySelector(".btn-primary").addEventListener("click",function(){
+        //             this.setAttribute("data-bs-toggle", "modal");
+        //             this.setAttribute("data-bs-target", "#exampleModal");
+        //             console.log(x);
+        //             console.log(this);
+
+        //         })
+
+
+        // }
+
+        // `https://ddragon.leagueoflegends.com/cdn/img/champion/splash/${heroesData.image.full}_0.jpg`
+        // https://www.youtube.com/watch?v=wNNQRmx1qhM&ab_channel=Garena%E8%8B%B1%E9%9B%84%E8%81%AF%E7%9B%9FGarena%E8%8B%B1%E9%9B%84%E8%81%AF%E7%9B%9F%E5%B7%B2%E9%A9%97%E8%AD%89
+    </script>
+</body>
+
+</html>

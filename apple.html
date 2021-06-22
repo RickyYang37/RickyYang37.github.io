@@ -1,0 +1,648 @@
+<!doctype html>
+<html lang='en'>
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset='utf-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <!-- Bootstrap CSS -->
+    <link href='https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css' rel='stylesheet'
+        integrity='sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x' crossorigin='anonymous'>
+    <link rel="stylesheet" href="normalize.css">
+    <title>Hello, 阿婆!</title>
+</head>
+
+<body>
+    <script src='https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js'
+        integrity='sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4'
+        crossorigin='anonymous'></script>
+
+    <div class="container">
+        <div class="d-flex justify-content-center mb-4">
+            <button type="button" class="btn btn-dark mx-3">IPhone</button>
+            <button type="button" class="btn btn-dark mx-3">IPad</button>
+            <button type="button" class="btn btn-dark mx-3">MacPro</button>
+        </div>
+
+
+        <div class="row">
+            <div class="col-12 col-md-6 pic">
+                <!-- <img src="/apple/iphone-12-black-select-2020.png" alt=""> -->
+
+            </div>
+            <div class="col-12 col-md-6 info">
+
+            </div>
+        </div>
+
+    </div>
+
+
+
+
+
+
+    <script>
+        //資料區
+        let IPhoneData = [
+            { color: "全家福", url: "/apple/iphone11-select-2019-family.png" },
+            { color: "綠色", url: "/apple/iphone-12-black-green-2020.png" },
+            { color: "紫色", url: "/apple/iphone-12-black-purple-2020.png" },
+            { color: "藍色", url: "/apple/iphone-12-black-blue-2020.png" },
+            { color: "白色", url: "/apple/iphone-12-black-select-2020.png" },
+            { color: "黑色", url: "/apple/iphone-12-black-black-2020.png" },
+            { color: "紅色", url: "/apple/iphone-12-black-red-2020.png" },
+            { storage: ['64GB', "128GB", "256GB"] },
+            { price: [24900, 26900, 30400] }
+        ];
+        let IPadData = [
+            { color: "全家福", url: "/apple/ipad-hero-all.png" },
+            { color: "太空灰色", url: "/apple/ipad-space.png", colorValue: '#6e6969' },
+            { color: "銀色", url: "/apple/ipad-silver.png", colorValue: '#b9aeae' },
+            { color: "金色", url: "/apple/ipad-gold.png", colorValue: '#ceb7a8' },
+            { storage: ["32BG", "128GB"] },
+            { price: [10900, 13900] }
+        ];
+        let MacProData = [
+            { color: "default", url: "/apple/mbp13touch-space-default.png" },
+            { color: "太空灰色", url: "/apple/mbp13touch-space.png", colorValue: '#6e6969' },
+            { color: "銀色", url: "/apple/mbp13touch-silver.png", colorValue: '#b9aeae' },
+            { storage: ["256GB", "512GB","1TB","2TB"] },
+            { price: [51300, 57300,63300,75300] }
+        ];
+        //以上資料區
+
+        let IPhone = document.getElementsByTagName("button")[0];
+        let IPad = document.getElementsByTagName("button")[1];
+        let MacPro = document.getElementsByTagName("button")[2];
+
+        //顯示區
+        let pic = document.getElementsByClassName("pic")[0];
+        let info = document.getElementsByClassName("info")[0];
+
+        IPhone.onclick = function () {
+            //清除
+            pic.innerHTML = "";
+            info.innerHTML = "";
+            //pic區
+            let img = document.createElement("img");
+            img.setAttribute("src", "/apple/iphone11-select-2019-family.png")
+            // console.log(img);
+            pic.appendChild(img);
+
+            //info區
+            //顏色區塊
+            let h1 = document.createElement("h2");
+            let button = document.createElement("button");
+            let button2 = document.createElement("button");
+            let button3 = document.createElement("button");
+
+            button.setAttribute("class", "border border-dark bg-white mx-2")
+            button.setAttribute("style", "padding:50px")
+            button2.setAttribute("class", "border border-dark bg-white mx-2")
+            button2.setAttribute("style", "padding:50px")
+            button3.setAttribute("class", "border border-dark bg-white mx-2")
+            button3.setAttribute("style", "padding:50px")
+            h1.innerHTML = "顏色";
+
+            info.appendChild(h1);
+            info.appendChild(button);
+            info.appendChild(button2);
+            info.appendChild(button3);
+            //顏色圖案
+            let div = document.createElement("div");
+            div.setAttribute("class", "bg-success");
+            div.setAttribute("style", "width:50px;height:50px;border-radius:50%");
+            button.appendChild(div);
+            let div2 = document.createElement("div");
+            div2.setAttribute("style", "width:50px;height:50px;border-radius:50%;background-color:purple");
+            button2.appendChild(div2);
+            let div3 = document.createElement("div");
+            div3.setAttribute("style", "width:50px;height:50px;border-radius:50%;background-color:blue");
+            button3.appendChild(div3);
+            //顏色的p
+            let p = document.createElement("p");
+            p.setAttribute("class", "m-auto mt-2")
+            let greenObj = IPhoneData.find(x => x.color = "綠色");
+            p.innerHTML = greenObj.color;
+            button.appendChild(p);
+            let p2 = document.createElement("p");
+            p2.setAttribute("class", "m-auto mt-2")
+            let purpleObj = IPhoneData.find(x => x.color = "紫色");
+            p2.innerHTML = purpleObj.color;
+            button2.appendChild(p2);
+            let p3 = document.createElement("p");
+            p3.setAttribute("class", "m-auto mt-2")
+            let blueObj = IPhoneData.find(x => x.color = "藍色");
+            p3.innerHTML = blueObj.color;
+            button3.appendChild(p3);
+
+            //規格
+            let h2 = document.createElement("h2");
+            let button4 = document.createElement("button");
+            let button5 = document.createElement("button");
+            let button6 = document.createElement("button");
+            button4.setAttribute("class", "border border-dark bg-white mx-2")
+            button4.setAttribute("style", "padding:50px")
+            button5.setAttribute("class", "border border-dark bg-white mx-2")
+            button5.setAttribute("style", "padding:50px")
+            button6.setAttribute("class", "border border-dark bg-white mx-2")
+            button6.setAttribute("style", "padding:50px")
+            h2.innerText = "規格";
+            h2.setAttribute("class", "mt-3")
+
+            //規格文字 & $$
+            let iphoneStorage = IPhoneData.find(x => x.storage);
+            let iphonePrice = IPhoneData.find(x => x.price);
+            button4.innerHTML = iphoneStorage.storage[0] + "<br>".repeat(2) + "NT$ " + iphonePrice.price[0];
+            button5.innerHTML = iphoneStorage.storage[1] + "<br>".repeat(2) + "NT$ " + iphonePrice.price[1];
+            button6.innerHTML = iphoneStorage.storage[2] + "<br>".repeat(2) + "NT$ " + iphonePrice.price[2];
+
+            info.appendChild(h2);
+            info.appendChild(button4);
+            info.appendChild(button5);
+            info.appendChild(button6);
+            //價格試算
+            let h3 = document.createElement("h2");
+            h3.setAttribute("class", "mt-3")
+            h3.innerText = "價格試算";
+            info.appendChild(h3);
+            //價格
+            let p4 = document.createElement("p");
+            info.appendChild(p4);
+
+            //按下顏色按鈕
+            button.onclick = function () {
+                pic.innerHTML = "";
+                img.setAttribute("src", "/apple/iphone-12-green-select-2020.png")
+                pic.appendChild(img);
+            }
+            button2.onclick = function () {
+                pic.innerHTML = "";
+                img.setAttribute("src", "/apple/iphone-12-purple-select-2021.png")
+                pic.appendChild(img);
+            }
+            button3.onclick = function () {
+                pic.innerHTML = "";
+                img.setAttribute("src", "/apple/iphone-12-blue-select-2020.png")
+                pic.appendChild(img);
+            }
+
+            //按下規格按鈕
+            button4.onclick = function () {
+                p4.setAttribute("class", "fs-1")
+                p4.innerHTML = "NT$ " + iphonePrice.price[0];
+                // display-4 font-weight-bolder
+            }
+            button5.onclick = function () {
+                p4.setAttribute("class", "fs-1")
+                p4.innerHTML = "NT$ " + iphonePrice.price[1];
+                // display-4 font-weight-bolder
+            }
+            button6.onclick = function () {
+                p4.setAttribute("class", "fs-1")
+                p4.innerHTML = "NT$ " + iphonePrice.price[2];
+                // display-4 font-weight-bolder
+            }
+        }
+
+        //IPad地域開始
+        IPad.addEventListener("click", function () {
+            //清除
+            pic.innerHTML = "";
+            info.innerHTML = "";
+            //左圖
+            let img = document.createElement("img");
+            img.setAttribute("src", IPadData[0].url);
+            pic.appendChild(img);
+            //info區
+
+            //顏色價格規格三個小朋友
+            //裡面文字都不一樣
+            //h2的製造工廠
+            function createH2(theOne, ele, text) {
+                let elem = document.createElement(ele);
+                elem.innerHTML = text;
+                theOne.appendChild(elem);
+                return elem;
+            }
+            createH2(info, "h2", "顏色");
+            //三個顏色按鈕
+            function createButton(theOne, ele) {
+                let btn = document.createElement(ele);
+                btn.setAttribute("class", "border border-dark bg-white mx-2");
+                btn.setAttribute("style", "padding:50px;line-height:30px");
+                theOne.appendChild(btn);
+                return btn;
+            }
+            let colorBtn=createButton(info, "button");
+            let colorBtn2=createButton(info, "button");
+            let colorBtn3=createButton(info, "button");
+            //畫三個顏色區塊
+            function colorCircle(theOne,ele,colorValue) {
+                let cir = document.createElement(ele);
+                cir.setAttribute("style", `width:50px;height:50px;border-radius:50%;background-color:${colorValue};margin:auto`);
+                theOne.appendChild(cir);
+                return cir;
+            }
+            colorCircle(colorBtn,"div","#6e6969")
+            colorCircle(colorBtn2,"div","#ceb7a8")
+            colorCircle(colorBtn3,"div","#b9aeae")
+            //顏色區塊加入文字
+            colorBtn.innerHTML+="太空灰色";
+            colorBtn2.innerHTML+="金色";
+            colorBtn3.innerHTML+="銀色";
+            //顏色按鈕按下跑圖
+            colorBtn.addEventListener("click",function(){
+                pic.innerHTML="";
+                let img=document.createElement("img");
+                img.setAttribute("src","/apple/ipad-space.png")
+                pic.appendChild(img)
+            })
+            colorBtn2.addEventListener("click",function(){
+                pic.innerHTML="";
+                let img=document.createElement("img");
+                img.setAttribute("src","/apple/ipad-silver.png")
+                pic.appendChild(img)
+            })
+            colorBtn3.addEventListener("click",function(){
+                pic.innerHTML="";
+                let img=document.createElement("img");
+                img.setAttribute("src","/apple/ipad-gold.png")
+                pic.appendChild(img)
+            })
+
+            //規格h2
+            createH2(info,"h2","規格").setAttribute("class","mt-3");
+            //規格三按鈕
+            let storageBtn=createButton(info,"button");
+            let storageBtn2=createButton(info,"button");
+            //引入規格資料
+            storageBtn.innerHTML=IPadData[4].storage[0]+"<br>NT$ "+IPadData[5].price[0];
+            storageBtn2.innerHTML=IPadData[4].storage[1]+"<br>NT$ "+IPadData[5].price[1];
+
+            //價格試算
+            createH2(info,"h2","價格試算").setAttribute("class","mt-3");
+            //創造價格變動p
+            let p=document.createElement("p");
+            p.setAttribute("class","fs-1")
+            info.appendChild(p);
+
+            //按下規格價錢變動
+            storageBtn.addEventListener("click",function(){
+                p.innerHTML="NT$ "+IPadData[5].price[0];
+            })
+            storageBtn2.addEventListener("click",function(){
+                p.innerHTML="NT$ "+IPadData[5].price[1];
+            })
+        })
+
+
+
+        //MacPro地域開始
+        MacPro.addEventListener("click", function () {
+            //清除
+            pic.innerHTML = "";
+            info.innerHTML = "";
+            //左圖
+            let img = document.createElement("img");
+            img.setAttribute("src", MacProData[0].url);
+            img.setAttribute("class", "img-fluid");
+            pic.appendChild(img);
+            //info區
+
+            //顏色價格規格三個小朋友
+            //裡面文字都不一樣
+            //h2的製造工廠
+            function createH2(theOne, ele, text) {
+                let elem = document.createElement(ele);
+                elem.innerHTML = text;
+                theOne.appendChild(elem);
+                return elem;
+            }
+            createH2(info, "h2", "顏色");
+            //兩個顏色按鈕
+            function createButton(theOne, ele) {
+                let btn = document.createElement(ele);
+                btn.setAttribute("class", "border border-dark bg-white mx-2");
+                btn.setAttribute("style", "padding:50px;line-height:30px");
+                theOne.appendChild(btn);
+                return btn;
+            }
+            let colorBtn=createButton(info, "button");
+            let colorBtn2=createButton(info, "button");
+            //畫兩個顏色區塊
+            function colorCircle(theOne,ele,colorValue) {
+                let cir = document.createElement(ele);
+                cir.setAttribute("style", `width:50px;height:50px;border-radius:50%;background-color:${colorValue};margin:auto`);
+                theOne.appendChild(cir);
+                return cir;
+            }
+            colorCircle(colorBtn,"div","#6e6969")
+            colorCircle(colorBtn2,"div","#b9aeae")
+            //顏色區塊加入文字
+            colorBtn.innerHTML+="太空灰色";
+            colorBtn2.innerHTML+="銀色";
+            //顏色按鈕按下跑圖
+            colorBtn.addEventListener("click",function(){
+                pic.innerHTML="";
+                let img=document.createElement("img");
+                img.setAttribute("src",MacProData[1].url);
+                img.setAttribute("class","img-fluid");
+                pic.appendChild(img);
+            })
+            colorBtn2.addEventListener("click",function(){
+                pic.innerHTML="";
+                let img=document.createElement("img");
+                img.setAttribute("src",MacProData[2].url);
+                img.setAttribute("class","img-fluid");
+                pic.appendChild(img);
+            })
+            //規格h2
+            createH2(info,"h2","規格").setAttribute("class","mt-3");
+            //規格三按鈕
+            let storageBtn=createButton(info,"button");
+            let storageBtn2=createButton(info,"button");
+            let storageBtn3=createButton(info,"button");
+            let storageBtn4=createButton(info,"button");
+            storageBtn4.classList.add("mt-2");
+
+            //引入規格資料
+            storageBtn.innerHTML=MacProData[3].storage[0]+"<br>NT$ "+MacProData[4].price[0];
+            storageBtn2.innerHTML=MacProData[3].storage[1]+"<br>NT$ "+MacProData[4].price[1];
+            storageBtn3.innerHTML=MacProData[3].storage[2]+"<br>NT$ "+MacProData[4].price[2];
+            storageBtn4.innerHTML=MacProData[3].storage[3]+"<br>NT$ "+MacProData[4].price[3];
+
+            //價格試算
+            createH2(info,"h2","價格試算").setAttribute("class","mt-3");
+            //創造價格變動p
+            let p=document.createElement("p");
+            p.setAttribute("class","fs-1")
+            info.appendChild(p);
+
+            //按下規格價錢變動
+            storageBtn.addEventListener("click",function(){
+                p.innerHTML="NT$ "+MacProData[4].price[0];
+            })
+            storageBtn2.addEventListener("click",function(){
+                p.innerHTML="NT$ "+MacProData[4].price[1];
+            })
+            storageBtn3.addEventListener("click",function(){
+                p.innerHTML="NT$ "+MacProData[4].price[2];
+            })
+            storageBtn4.addEventListener("click",function(){
+                p.innerHTML="NT$ "+MacProData[4].price[3];
+            })
+        })
+
+
+
+
+        //助教的
+        var Product = {
+            IPhone: {
+                Detail: {
+                    productName: 'iPhone 11',
+                    baseImgUrl: './img/iPhone11-select-2019-family.png'
+                },
+                OutWard: [
+                    { color: '紅色', colorValue: '#ff0000', imageUrl: './img/iPhone-red.png' },
+                    { color: '黃色', colorValue: '#ffff00', imageUrl: './img/iPhone-yellow.png' },
+                    { color: '黑色', colorValue: '#000000', imageUrl: './img/iPhone-black.png' },
+                ],
+                Spec: {
+                    Storage: [
+                        { size: '64GB', fit: 24900 },
+                        { size: '128GB', fit: 26900 },
+                        { size: '256GB', fit: 30400 },
+                    ]
+                }
+            },
+            IPad: {
+                Detail: {
+                    productName: 'iPad',
+                    baseImgUrl: './img/ipad-hero-unselected-201909_GEO_TW.png'
+                },
+                OutWard: [
+                    { color: '太空灰色', colorValue: '#6e6969', imageUrl: './img/ipad-space.png' },
+                    { color: '銀色', colorValue: '#b9aeae', imageUrl: './img/ipad-silver.png' },
+                    { color: '金色', colorValue: '#ceb7a8', imageUrl: './img/ipad-gold.png' },
+                ],
+                Spec: {
+                    Storage: [
+                        { size: '32GB', fit: 10900 },
+                        { size: '128GB', fit: 13900 },
+                    ]
+                }
+            },
+            MacPro: {
+                Detail: {
+                    productName: 'MacPro 13',
+                    baseImgUrl: './img/mbp13touch-space-gallery1-201907.png'
+                },
+                OutWard: [
+                    { color: '太空灰色', colorValue: '#6e6969', imageUrl: './img/mbp13touch-space.png' },
+                    { color: '銀色', colorValue: '#b9aeae', imageUrl: './img/mbp13touch-silver.png' },
+                ],
+                Spec: {
+                    Storage: [
+                        { size: '256GB', fit: 51300 },
+                        { size: '512GB', fit: 57300 },
+                        { size: '1TB', fit: 63300 },
+                        { size: '2TB', fit: 75300 },
+                    ]
+                }
+            }
+        };
+
+        var iPhoneBtn = document.getElementById('iPhone');
+        var productImg = document.getElementById('product-img');
+
+        var colorArea = document.getElementById('color');
+        var typeArea = document.getElementById('type');
+        var priceArea = document.getElementById('price');
+
+        //iPhoneBtn.onclick = function () 
+        function InitProduct(product) {
+            console.log(product);
+            //初始化
+            colorArea.innerHTML = '';
+            typeArea.innerHTML = '';
+            priceArea.innerHTML = '';
+            productImg.setAttribute('src', Product[product].Detail.baseImgUrl);
+
+            //顏色按鈕區域
+            let colorTitle = document.createElement('div');
+            let colorTitleH1 = document.createElement('h2');
+
+            colorTitleH1.innerText = '顏色';
+            colorTitle.classList.add('w-100');
+            colorTitle.classList.add('d-flex');
+            colorTitle.classList.add('justify-content-center');
+            colorTitle.classList.add('justify-content-md-start');
+
+            colorTitle.appendChild(colorTitleH1);
+
+            colorArea.appendChild(colorTitle);
+
+            for (let item of Product[product].OutWard) {
+                let colorDiv = document.createElement('div');
+                let colorBtn = document.createElement('button');
+                let colorBtnDiv = document.createElement('div');
+                let colorI = document.createElement('i');
+                let colorSpan = document.createElement('span');
+
+                colorDiv.classList.add('col-6');
+                colorDiv.classList.add('col-md-4');
+
+                colorBtn.classList.add('color-btn'); //跟樣式無關
+                colorBtn.classList.add('btn');
+                colorBtn.classList.add('btn-outline-dark');
+                colorBtn.classList.add('mb-3');
+                colorBtn.classList.add('w-100');
+                colorBtn.setAttribute('urlVal', item.imageUrl);
+
+                colorBtnDiv.classList.add('p-4');
+                colorBtnDiv.classList.add('d-flex');
+                //colorBtnDiv.style.boxSizing = 'border-box';
+                colorBtnDiv.classList.add('flex-column');
+                colorBtnDiv.classList.add('justify-content-center');
+                colorBtnDiv.classList.add('align-items-center');
+
+                colorI.classList.add('fas');
+                colorI.classList.add('fa-circle');
+                colorI.classList.add('display-4');
+                colorI.style.color = item.colorValue;
+
+                colorSpan.innerText = item.color;
+
+                colorBtnDiv.appendChild(colorI);
+                colorBtnDiv.appendChild(colorSpan);
+
+                colorBtn.appendChild(colorBtnDiv);
+                colorDiv.appendChild(colorBtn);
+
+                colorArea.appendChild(colorDiv);
+            }
+
+            let colorBtns = document.getElementsByClassName('color-btn');
+
+            for (let btn of colorBtns) {
+                btn.addEventListener('click', function () {
+                    //console.log(btn);
+                    console.log(btn.getAttributeNode('urlVal').value);
+                    productImg.setAttribute('src', btn.getAttributeNode('urlVal').value);
+                });
+            }
+
+            //規格按鈕區域
+            let typeTitle = document.createElement('div');
+            let typeTitleH1 = document.createElement('h2');
+
+            typeTitleH1.innerText = '規格';
+            typeTitle.classList.add('w-100');
+            typeTitle.classList.add('d-flex');
+            typeTitle.classList.add('justify-content-center');
+            typeTitle.classList.add('justify-content-md-start');
+
+            typeTitle.appendChild(typeTitleH1);
+
+            typeArea.appendChild(typeTitle);
+
+            for (let item of Product[product].Spec.Storge) {
+                let typeDiv = document.createElement('div');
+                let typeBtn = document.createElement('button');
+                let typeBtnDiv = document.createElement('div');
+                let typeP = document.createElement('p');
+                let typeSpan = document.createElement('span');
+
+                typeDiv.classList.add('col-6');
+                typeDiv.classList.add('col-md-4')
+
+                typeBtn.classList.add('type-btn');
+                typeBtn.classList.add('btn');
+                typeBtn.classList.add('btn-outline-dark');
+                typeBtn.classList.add('mb-3');
+                typeBtn.classList.add('w-100');
+                typeBtn.setAttribute('fit', item.fit);
+
+                typeBtnDiv.classList.add('p-4');
+                typeBtnDiv.classList.add('d-flex');
+                typeBtnDiv.classList.add('flex-column');
+                typeBtnDiv.classList.add('justify-content-center');
+                typeBtnDiv.classList.add('align-items-center');
+
+                typeP.classList.add('font-weight-bolder');
+                typeP.innerText = item.size;
+
+                typeSpan.innerText = `NT$${item.fit}`;
+
+                typeBtnDiv.appendChild(typeP);
+                typeBtnDiv.appendChild(typeSpan);
+
+                typeBtn.appendChild(typeBtnDiv);
+                typeDiv.appendChild(typeBtn);
+
+                typeArea.appendChild(typeDiv);
+            }
+
+            let typeBtns = document.getElementsByClassName('type-btn');
+
+            //計價區域
+            let priceTitle = document.createElement('div');
+            let priceTitleH1 = document.createElement('h2');
+
+            priceTitleH1.innerText = '價格試算';
+            priceTitle.classList.add('w-100');
+            priceTitle.classList.add('d-flex');
+            priceTitle.classList.add('justify-content-center');
+            priceTitle.classList.add('justify-content-md-start');
+
+            priceTitle.appendChild(priceTitleH1);
+
+            priceArea.appendChild(priceTitle);
+
+            for (let item of typeBtns) {
+                item.addEventListener('click', function () {
+                    //初始化
+                    priceArea.innerHTML = '';
+                    let priceTitle = document.createElement('div');
+                    let priceTitleH1 = document.createElement('h2');
+
+                    priceTitleH1.innerText = '價格試算';
+                    priceTitle.classList.add('w-100');
+                    priceTitle.classList.add('d-flex');
+                    priceTitle.classList.add('justify-content-center');
+                    priceTitle.classList.add('justify-content-md-start');
+
+                    priceTitle.appendChild(priceTitleH1);
+
+                    priceArea.appendChild(priceTitle);
+
+                    //顯示試算結果
+                    let fit = item.getAttributeNode('fit').value;
+
+                    let priceDiv = document.createElement('div');
+                    let priceP = document.createElement('p');
+
+                    priceDiv.classList.add('col-12');
+                    priceDiv.classList.add('d-flex');
+                    priceDiv.classList.add('justify-content-center');
+                    priceDiv.classList.add('justify-content-md-start');
+
+                    priceP.classList.add('display-4');
+                    priceP.classList.add('font-weight-bolder');
+                    priceP.innerText = `NT$${fit}`;
+
+                    priceDiv.appendChild(priceP);
+
+                    priceArea.appendChild(priceDiv);
+                });
+            }
+        }
+
+
+    </script>
+</body>
+
+</html>
