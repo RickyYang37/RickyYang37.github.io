@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang='en'>
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset='utf-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <!-- Bootstrap CSS -->
+    <link href='https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css' rel='stylesheet'
+        integrity='sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x' crossorigin='anonymous'>
+    <title>Hello, 計算機!</title>
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <div class="container w-50 mt-5 border border-primary p-5">
+        <div class="row g-2">
+            <div class="col-12 d-flex flex-wrap justify-content-between">
+                <input class="p-3 border bg-primary text-end col-12 fs-4" id="calc" placeholder="0" type="text">
+
+                <button class="btn btn-outline-primary " style="width: 33.33%;">C</button>
+                <button class="btn btn-outline-primary " style="width: 33.33%;">←</button>
+                <button class="btn btn-outline-primary " style="width: 33.33%;">=</button>
+                <br>
+                <button class="btn btn-outline-primary w-25">1</button>
+                <button class="btn btn-outline-primary w-25">2</button>
+                <button class="btn btn-outline-primary w-25">3</button>
+                <button class="btn btn-outline-primary w-25">+</button>
+                <br>
+                <button class="btn btn-outline-primary w-25">4</button>
+                <button class="btn btn-outline-primary w-25">5</button>
+                <button class="btn btn-outline-primary w-25">6</button>
+                <button class="btn btn-outline-primary w-25">-</button>
+                <br>
+                <button class="btn btn-outline-primary w-25">7</button>
+                <button class="btn btn-outline-primary w-25">8</button>
+                <button class="btn btn-outline-primary w-25">9</button>
+                <button class="btn btn-outline-primary w-25">*</button>
+                <br>
+                <button class="btn btn-outline-primary w-25">+/-</button>
+                <button class="btn btn-outline-primary w-25">0</button>
+                <button class="btn btn-outline-primary w-25">.</button>
+                <button class="btn btn-outline-primary w-25">/</button>
+
+            </div>
+        </div>
+    </div>
+
+    <script src='https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js'
+        integrity='sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4'
+        crossorigin='anonymous'></script>
+
+    <script>
+        //取加減、乘除、宣告暫存
+        let plus = document.getElementsByTagName("button")[6];
+        let minus = document.getElementsByTagName("button")[10];
+        let multiple = document.getElementsByTagName("button")[14];
+        let divide = document.getElementsByTagName("button")[18];
+        let equal = document.getElementsByTagName("button")[2];
+        let temporaryNumber = 0;
+        //加減乘除狀態
+        let plusStatus = true;
+        let minusStatus = true;
+        let multipleStatus = true;
+        let divideStatus = true;
+        //取顯示區
+        let show = document.getElementById("calc");
+        //所有數字按鈕
+        let allBtn = document.querySelectorAll(".btn");
+        allBtn.forEach(function (ele) {
+            console.log(ele)
+            ele.onclick = function () {
+                show.value += ele.innerText;
+            }
+        });
+        //++++
+        plus.addEventListener("click", function () {
+            temporaryNumber = show.value;
+            show.value = "";
+            console.log(temporaryNumber);
+            plusStatus = true;
+            minusStatus = false;
+            divideStatus = false;
+            multipleStatus = false;
+        })
+        //----
+        minus.addEventListener("click", function () {
+            temporaryNumber = show.value;
+            show.value = "";
+            console.log(temporaryNumber);
+            minusStatus = true;
+            plusStatus = false;
+            divideStatus = false;
+            multipleStatus = false;
+        })
+        //****
+        multiple.addEventListener("click", function () {
+            temporaryNumber = show.value;
+            show.value = "";
+            multipleStatus = true;
+            minusStatus = false;
+            plusStatus = false;
+            divideStatus = false;
+        })
+        /////
+        divide.addEventListener("click", function () {
+            temporaryNumber = show.value;
+            show.value = "";
+            divideStatus = true;
+            multipleStatus = false;
+            minusStatus = false;
+            plusStatus = false;
+        })
+        //====
+        equal.addEventListener("click", function () {
+            console.log(temporaryNumber);
+            if (plusStatus == true) {
+                show.value = parseFloat(temporaryNumber) + parseFloat(show.value);
+            }
+            else if (minusStatus == true) {
+                console.log(minusStatus);
+                show.value = parseFloat(temporaryNumber) - parseFloat(show.value);
+            }
+            else if (multipleStatus == true) {
+                show.value = parseFloat(temporaryNumber) * parseFloat(show.value);
+            }
+            else if (divideStatus == true) {
+                show.value = parseFloat(temporaryNumber) / parseFloat(show.value);
+            }
+        })
+        //取正負
+        let opposite = document.getElementsByTagName("button")[15];
+        opposite.addEventListener("click", function () {
+            let numShow = parseFloat(show.value);
+            if (numShow > 0) {
+                show.value = -numShow;
+            }
+            else {
+                show.value = Math.abs(numShow);
+            }
+        })
+
+        //取C 清除
+        let C = document.getElementsByTagName("button")[0];
+        C.onclick = function () {
+            show.value = "";
+        }
+        //取八股鍵
+        let backspace = document.getElementsByTagName("button")[1];
+        backspace.onclick = function () {
+            // show.innerText.slice(5);
+            show.value = show.value.substring(0, show.value.length - 1);
+
+            console.log(typeof (show.value));
+        }
+
+    </script>
+</body>
+
+</html>
