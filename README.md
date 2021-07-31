@@ -34,3 +34,6 @@ Consloe.log(qq)
 ```csharp
 Consloe.WriteLine(qq)
 ```
+```js
+function
+```
